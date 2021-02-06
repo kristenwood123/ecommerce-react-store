@@ -1,0 +1,28 @@
+.home {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.home__wrapper {
+  display: flex;
+  width: 800px;
+  align-items: center;
+}
+
+.home__logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__text-heading {
+  color: #3d4246;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+p {
+  color: #9fa6ab;
+  font-weight: 200;
+}

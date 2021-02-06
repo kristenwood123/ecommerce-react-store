@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Timepieces from './components/Timepieces'
 import Home from './components/Home'
 import { BrowserRouter, Route } from 'react-router-dom'
+import Footer from './components/Footer'
 
 //App components
 
