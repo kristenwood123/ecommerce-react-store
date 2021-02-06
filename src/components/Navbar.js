@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import bag from '../images/bag.png'
 import '../styles/Navbar.css'
 
@@ -11,8 +12,8 @@ const Navbar = () => {
       </div>
       <div className="Navbar__links-wrapper">
         <ul className='Navbar__links'>
-          <li><a href="#"></a>HOME</li>
-          <li><a href="#"></a>SHOP</li>
+          <li><Link to='/' style={{ textDecoration: 'none' }}>HOME</Link></li>
+          <li><Link to='timepieces' style={{ textDecoration: 'none' }}>SHOP</Link></li>
           <li><a href="#"></a>ABOUT</li>
           <li><a href="#"></a>NEWS</li>
           <li><a href="#"></a>STORY</li>    
