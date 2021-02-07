@@ -3,7 +3,7 @@ import React from 'react'
 const Timepiece = () => {
   return (
     <div>
-      I am a Timpiece component
+      <h1>I am a watch!</h1>
     </div>
   )
 }
