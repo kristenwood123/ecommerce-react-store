@@ -47,3 +47,15 @@ export const storeTimepieces = [
     info: 'As many of you know, we take great pride in "over testing" our timepieces, and after testing not 1, but 4 different prototypes, we happily to present to you The Merlin. Our first Solar Powered watch that is classically styled with a clean finish. The DLC coating adds a sleek take on this unconventional timepiece. The goal with all of our wristwatches is the same, to have a timepiece that can be used in both wetsuit and business suit. Allowing our watches to be With You from the office to the adventures. At the same time, we wanted something that would meet the feedback from our community. A wristwatch that would tick away and not need winding. Truly a grab-and-go. '
   }
 ]
+
+export const detailTimepiece = {
+  id: 1,
+  title: '',
+  img: '',
+  price: 0,
+  info: '',
+  inCart: false,
+  cout: 0,
+  total: 0
+}
+

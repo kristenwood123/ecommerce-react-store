@@ -1,4 +1,6 @@
 import React from 'react'
+import { Linke } from 'react-router-dom'
+import { ProductConsumer } from '../context'
 
 const Timepiece = () => {
   return (
