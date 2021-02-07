@@ -33,9 +33,14 @@ body {
   margin-bottom: 7px;
   cursor: pointer;
   margin-top: 20px;
+  color: black;
 }
 
-.Navbar__links li:hover {
+a {
+  color: black;
+}
+
+a:hover {
   color: #9b9b9b;
 }
 

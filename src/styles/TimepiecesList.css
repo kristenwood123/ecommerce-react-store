@@ -1,0 +1,11 @@
+.TimepieceList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.TimepieceList__heading {
+  color: #3d4246;
+  font-size: 40px;
+  letter-spacing: 1px;
+}

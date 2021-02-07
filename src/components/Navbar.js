@@ -22,7 +22,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="Navbar__bag-wrapper">
-        <img className='Navbar__bag' src={bag} alt=""/>
+        <Link to='/cart'><img className='Navbar__bag' src={bag} alt=""/></Link>
       </div>    
     </div>
   )
