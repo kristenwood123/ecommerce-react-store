@@ -8,7 +8,7 @@ export default class Details extends Component {
     return (     
         <ProductConsumer>
           {(value) => {
-            const { id, title, img, price, info, inCart } = value.detailTimepiece;
+            const { id, title, img, price, info, inCart } = value.detailProduct;
             return (
               <div className='details'>
                 <img className='details__img' src={img} alt=""/>
@@ -16,8 +16,15 @@ export default class Details extends Component {
                     <p className='details__title'>{title}</p>
                     <p className="details__info">{info}</p>
                     <p className="details__price">${price}.00</p>
-                   <div className="details__btn-container">
-                      <button className='details__btn'>Add to Cart</button>
+                    <div className="details__btn-container">
+                      <button 
+                        className='details__btn' 
+                        disabled={ inCart? true : false } 
+                        onClick={() => {
+                          value.addToCart(id);}}
+                          style={{ borderColor: props =>(props.cart ? 'red' : 'blue' )}} >
+                       {inCart ? 'In Cart' : 'Add to    Cart'}
+                      </button>
                       <Link to='/timepieces'><button className='details__btn-shopping'>Back to Timepieces</button></Link>
                     </div>
                 </div>

@@ -66,7 +66,7 @@ export const storeTimepieces = [
   }
 ]
 
-export const detailTimepiece = {
+export const detailProduct = {
   id: 1,
   title: 'ATLAS',
   img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/ScreenShot2020-09-14at12.55.20PM_720x.png?v=1610542330',
