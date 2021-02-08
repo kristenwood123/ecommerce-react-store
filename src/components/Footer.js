@@ -1,9 +1,16 @@
 import React from 'react'
+import '../styles/Footer.css'
 
 const Footer = () => {
   return (
-    <div>
-      <h2>I am the footer</h2>
+    <div className='footer'>
+      <ul className='footer__list'>
+        <li>Search</li>
+        <li>Contact</li>
+        <li>About</li>
+      </ul>
+      <input type="text" placeholder='Email Address'/>
+      <button>Subscribe</button>
     </div>
   )
 }

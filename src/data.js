@@ -16,7 +16,7 @@ export const storeTimepieces = [
     img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/OverlordTESTwDS_50be30d4-5fab-4af8-95b4-114072ac5e16_720x.png?v=1611846640',
     price: 469.00, 
     info: 'We started the Overlord project with a simple question. What if members of the Allied assault forces during World War II designed the field watch they wore into battle? We took that question and asked it to roughly 70 members of the Airborne community. Over the course of 90 weeks from start to finish, we came up with what you see here. The Overlord field watch (Airborne version requires proof of military jump course completion ).',
-    inCart: true,
+    inCart: false,
     count: 0,
     total: 0
   },

@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+.footer__list {
+  color: #a3a5a7;
+  font-family: "Roboto-slab", "serif";
+  list-style-type: none;
+}

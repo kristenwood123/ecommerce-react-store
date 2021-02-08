@@ -17,7 +17,7 @@
   padding-bottom: 20px;
 }
 
-.Timepiece__card-watch:hover {
+.Timepiece:hover {
   opacity: 0.7;
 }
 
@@ -32,10 +32,8 @@
 }
 
 .Timepiece__price {
-  display: flex;
   align-self: flex-end;
-  justify-self: flex-end;
-  margin-left: 100px;
+  margin-left: 50px;
   color: #b1b6ba;
 }
 
@@ -48,6 +46,15 @@
   border-radius: 2px;
   outline: none;
   margin-left: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px;
+  margin-top: -40px;
 }
 
 .disabled {

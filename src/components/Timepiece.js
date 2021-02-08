@@ -15,23 +15,25 @@ export default class Timepiece extends React.Component {
             <img src={img} alt="product" className='Timepiece__card-watch'/>
           </Link>
           </div>
+          
           <div className="Timepiece__title">{title}</div>
         </div>
-
+        
+      <div className="button-container">
+      <div className="Timepiece__price">${price}.00</div>
           <button 
             className='Timepiece__cart-btn' 
             disabled={inCart ? true : false} 
             onClick={() => {console.log('added to cart')
             }} 
-            >{inCart ? (
+            >{ inCart ? (
             <p className='disabled' disabled>
             {'IN CART'}
             </p>
             ) : (
               <p className='enabled'>ADD TO CART</p>
             )}</button>
-          
-          <div className="Timepiece__price">${price}.00</div>
+          </div>
         </div>
       
     )

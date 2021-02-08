@@ -17,16 +17,15 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Footer />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList} />
           <Route path='/cart' component={Cart} />
           <Route path='/details' component={Details} />
           <Route component={Default} />
-        </Switch>
-        
+        </Switch>       
       </div>
+    <Footer />
     </BrowserRouter>
    
   );
