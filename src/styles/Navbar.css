@@ -36,6 +36,10 @@ body {
   color: black;
 }
 
+.Navbar__links li:hover {
+  color: #9b9b9b;
+}
+
 a {
   color: black;
 }
@@ -50,5 +54,5 @@ a:hover {
 }
 
 .Navbar__bag:hover {
-  opacity: 0.09;
+  opacity: 0.6;
 }

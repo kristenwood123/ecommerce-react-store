@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="Navbar__links-wrapper">
         <ul className='Navbar__links'>
           <li><Link to='/' style={{ textDecoration: 'none' }}>HOME</Link></li>
-          <li><Link to='timepieces' style={{ textDecoration: 'none' }}>SHOP</Link></li>
+          <li><Link to='/timepieces' style={{ textDecoration: 'none' }}>SHOP</Link></li>
           <li><a href="#"></a>ABOUT</li>
           <li><a href="#"></a>NEWS</li>
           <li><a href="#"></a>STORY</li>    

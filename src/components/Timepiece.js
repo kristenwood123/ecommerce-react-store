@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ProductConsumer } from '../context'
 import '../styles/Timepiece.css'
+import PropTypes from 'prop-types'
 
 export default class Timepiece extends React.Component {
   render() {
@@ -14,9 +15,8 @@ export default class Timepiece extends React.Component {
           <Link to='/details'>
             <img src={img} alt="product" className='Timepiece__card-watch'/>
           </Link>
-          </div>
-          
-          <div className="Timepiece__title">{title}</div>
+          </div>         
+          <div className="Timepiece__title">{title}</div>          
         </div>
         
       <div className="button-container">
@@ -26,7 +26,9 @@ export default class Timepiece extends React.Component {
             disabled={inCart ? true : false} 
             onClick={() => {console.log('added to cart')
             }} 
-            >{ inCart ? (
+            >
+            
+            { inCart ? (
             <p className='disabled' disabled>
             {'IN CART'}
             </p>
@@ -34,10 +36,19 @@ export default class Timepiece extends React.Component {
               <p className='enabled'>ADD TO CART</p>
             )}</button>
           </div>
-        </div>
-      
+        </div> 
     )
   }
+}
+
+Timepiece.propTypes = {
+  product: PropTypes.shape({
+    id:PropTypes.number,
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    inCart:PropTypes.bool
+  }).isRequired
 }
 
 

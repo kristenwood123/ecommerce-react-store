@@ -68,12 +68,12 @@ export const storeTimepieces = [
 
 export const detailTimepiece = {
   id: 1,
-  title: '',
-  img: '',
-  price: 0,
-  info: '',
+  title: 'ATLAS',
+  img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/ScreenShot2020-09-14at12.55.20PM_720x.png?v=1610542330',
+  price: 595,
+  info: 'The Atlas is designed as an over-engineered tool watch. Legible dial with generously applied SuperLumiNova BGW9. Powered by the durable SII NE15 (6r15) automatic movement, known to run for years problem free. All housed in a custom 316L stainless steel case water resistant to 200m, designed for those who work in dynamic environments.',
   inCart: false,
-  cout: 0,
+  count: 0,
   total: 0
 }
 

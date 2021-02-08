@@ -25,10 +25,12 @@
   display: flex;
   flex-direction: row;
   align-self: center;
+  font-size: 17px;
   margin-left: 40px;
   justify-self: center;
   color: #272727;
   font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
 }
 
 .Timepiece__price {
