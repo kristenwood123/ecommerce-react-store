@@ -9,13 +9,14 @@ export default class Timepiece extends React.Component {
     const { id, title, img, price, inCart } = this.props.product;
     return (
       <ProductConsumer>
-      {(value) => (
+      {value => (
       <div className='Timepiece'>
         <div className="Timepiece__card">
             <div 
                 className="Timepiece__img-container" 
                 onClick={() => 
                   value.handleDetail(id)}>
+                  
           <Link to='/details'>
             <img src={img} alt="product" className='Timepiece__card-watch'/>
           </Link>

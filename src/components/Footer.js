@@ -9,8 +9,11 @@ const Footer = () => {
         <li>Contact</li>
         <li>About</li>
       </ul>
-      <input type="text" placeholder='Email Address'/>
-      <button>Subscribe</button>
+      
+      <div className='footer__email'>
+      <input className='footer__input' type="text" placeholder='Email Address'/>
+      <button className='footer__btn'>SUBSCRIBE</button>
+      </div>
     </div>
   )
 }

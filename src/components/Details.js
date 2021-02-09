@@ -21,8 +21,8 @@ export default class Details extends Component {
                         className='details__btn' 
                         disabled={ inCart? true : false } 
                         onClick={() => {
-                          value.addToCart(id);}}
-                          style={{ borderColor: props =>(props.cart ? 'red' : 'blue' )}} >
+                          value.addToCart(id)
+                          }} >
                        {inCart ? 'In Cart' : 'Add to    Cart'}
                       </button>
                       <Link to='/timepieces'><button className='details__btn-shopping'>Back to Timepieces</button></Link>
