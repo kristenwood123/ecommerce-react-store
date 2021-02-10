@@ -10,7 +10,26 @@ const ProductContext = React.createContext()
     state = {
       products: [],
       detailProduct: detailProduct,
-      cart: []
+      cart: [],
+      cartSubTotal: 0,
+      cartTax: 0,
+      cartTotal: 0,
+    }
+
+    increment = (id) => {
+      console.log('this is increment method')
+    }
+
+    decrement = (id) => {
+      console.log('this is decrement method')
+    }
+
+    removeItem = (id) => {
+      console.log('this is removeItem method')
+    }
+
+    clearCart = () => {
+      console.log('cart was cleared')
     }
 
     componentDidMount() {
@@ -63,7 +82,11 @@ const ProductContext = React.createContext()
         ///spreads all properties in state in a new object
         ...this.state, 
         handleDetail: this.handleDetail, 
-        addToCart: this.addToCart
+        addToCart: this.addToCart,
+        increment: this.increment,
+        decrement: this.decrement, 
+        removeItem: this.removeItem,
+        clearCart: this.clearCart
       }}>
         {this.props.children}
       </ProductContext.Provider>

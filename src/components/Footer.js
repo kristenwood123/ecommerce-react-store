@@ -9,11 +9,13 @@ const Footer = () => {
         <li>Contact</li>
         <li>About</li>
       </ul>
-      
+      <div className='footer__one'>
+        <p>Early release notification on limited products...</p>
       <div className='footer__email'>
       <input className='footer__input' type="text" placeholder='Email Address'/>
       <button className='footer__btn'>SUBSCRIBE</button>
       </div>
+    </div>
     </div>
   )
 }
