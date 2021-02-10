@@ -1,8 +1,8 @@
 .cart {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-content: center;
+  padding-top: 100px;
+  height: 100vh;
 }
 
 .cart__heading {
@@ -12,10 +12,25 @@
 }
 
 .emptycart {
-  display: flex;
-  flex-direction: column;
+  text-align: center;
   color: #788188;
   font-family: "Roboto Slab", "serif";
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptycart__btn1 {
+  background-color: white;
+  color: #788188;
+  font-family: "Roboto-slab", "serif";
+  justify-self: left;
+  font-size: 14px;
+  border: 1px solid black;
+  width: 250px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .cartColumns {

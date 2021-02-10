@@ -7,22 +7,24 @@ import EmptyCart from './EmptyCart';
 export default class Cart extends Component {
   render() {
     return (
-      
-      <ProductConsumer>
-            {(value) => {
-            const { title } = value.products;
-            return (
-        <div className='cart'>
-
+      <div className='cart'>
         <h1 className='cart__heading'>Your Cart</h1>
-          <EmptyCart />
-          {title}
-          <CartColumns/>
-          
-        </div>
-        )    
-      }}
+        <ProductConsumer>
+            {(value) => {
+            const { title, cart } = value;
+            if (cart.length > 0) {
+              return (
+                <React.Fragment>
+                  {title}
+                  <CartColumns/>
+                </React.Fragment>
+                )
+            } else {
+              return <EmptyCart />
+            }   
+          }}
       </ProductConsumer>
+     </div>
     )
   }
 }
