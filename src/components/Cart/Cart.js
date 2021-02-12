@@ -5,6 +5,7 @@ import '../../styles/Cart.css'
 import EmptyCart from './EmptyCart';
 import CartList from './CartList'
 
+
 export default class Cart extends Component {
   render() {
     return (

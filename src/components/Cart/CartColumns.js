@@ -23,6 +23,7 @@ export default class CartColumns extends Component {
 
           <div>
             <p>REMOVE</p>
+            
           </div>
 
           <div>
