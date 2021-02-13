@@ -10,7 +10,7 @@ const ProductContext = React.createContext()
     state = {
       products: [],
       detailProduct: detailProduct,
-      cart: [],
+      cart: storeTimepieces,
       cartSubTotal: 0,
       cartTax: 0,
       cartTotal: 0,
@@ -30,6 +30,21 @@ const ProductContext = React.createContext()
 
     clearCart = () => {
       console.log('cart was cleared')
+    }
+
+    addTotals = () => {
+      let subTotal = 0;
+      this.state.cart.map(item => (subTotal += item.total))
+      const tempTax = subTotal * 0.1;
+      const tax = parseFloat(tempTax.toFixed(2))
+      const total = subTotal + tax
+      this.setState(() => {
+        return {
+          cartSubTotal: subTotal,
+          cartTax: tax,
+          cartTotal: total
+        }
+      })
     }
 
     componentDidMount() {
@@ -70,7 +85,9 @@ const ProductContext = React.createContext()
       product.total = price; 
       this.setState(() => {
         return { products: tempProducts, cart: [...this.state.cart, product] }
-      }, () => {console.log(this.state)})
+      }, () => {
+        this.addTotals()
+      })
     }
 
 
