@@ -10,7 +10,7 @@ const ProductContext = React.createContext()
     state = {
       products: [],
       detailProduct: detailProduct,
-      cart: storeTimepieces,
+      cart: [],
       cartSubTotal: 0,
       cartTax: 0,
       cartTotal: 0,
@@ -25,11 +25,17 @@ const ProductContext = React.createContext()
     }
 
     removeItem = (id) => {
-      console.log('this is removeItem method')
+      let tempProducts = [...this.state.products]
+      let tempCart = [...this.state.cart]
     }
 
     clearCart = () => {
-      console.log('cart was cleared')
+      this.setState(() => {
+        return { cart: [] }
+      }, () => {
+        this.setProducts()
+        this.addTotals()
+      })
     }
 
     addTotals = () => {
