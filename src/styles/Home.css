@@ -6,8 +6,10 @@
 
 .home__wrapper {
   display: flex;
-  width: 800px;
+  width: 80%;
   align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .home__logo-wrapper {
