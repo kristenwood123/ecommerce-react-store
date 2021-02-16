@@ -16,19 +16,19 @@ export default function CartTotals({value}) {
                   onClick={() => clearCart()}>Clear Cart</button>
               </Link>
               <h5>
-                <span className="cartTotals__subtotaa">
+                <span className="cartTotals__subtotal">
                   subtotal :
                 </span>
                 <strong>$ {cartSubTotal}</strong>
               </h5>
               <h5>
-                <span className="cartTotals__subtotaa">
+                <span className="cartTotals__subtotal">
                   tax :
                 </span>
                 <strong>$ {cartTax}</strong>
               </h5>
               <h5>
-                <span className="cartTotals__subtotaa">
+                <span className="cartTotals__subtotal">
                   total :
                 </span>
                 <strong>$ {cartTotal}</strong>
