@@ -4,7 +4,7 @@ import CartItem from './CartItem'
 
 function CartList( {value} ) { 
   const {cart} = value
-  console.log(value, cart)
+
   return (
     <div className='cartlist_container'>
      {cart.map(item => {

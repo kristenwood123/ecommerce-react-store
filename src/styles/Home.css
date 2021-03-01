@@ -12,6 +12,12 @@
   margin: 0 auto;
 }
 
+.home__one,
+.home__two,
+.home__three {
+  margin: 10px;
+}
+
 .home__logo-wrapper {
   display: flex;
   align-items: center;

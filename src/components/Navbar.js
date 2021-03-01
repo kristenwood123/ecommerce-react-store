@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import bag from '../images/bag.png'
+// import bag from '../images/bag.png'
+import { FaShoppingCart } from 'react-icons/fa'
 import '../styles/Navbar.css'
 
 
@@ -22,7 +23,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="Navbar__bag-wrapper">
-        <Link to='/cart'><img className='Navbar__bag' src={bag} alt=""/></Link>
+        <Link to='/cart'><FaShoppingCart className='Navbar__bag' /></Link>
       </div>    
     </div>
   )
