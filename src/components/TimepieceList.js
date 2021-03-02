@@ -1,31 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Timepiece from './Timepiece'
+import data from '../data'
 import '../styles/TimepiecesList.css'
-import { ProductConsumer } from '../context'
 
-const TimepieceList  = () => {
-  
+
+const TimepieceList  = () => { 
+  const { products } = data; 
+ 
     return (
       <React.Fragment> 
         <div className='TimepieceList'>
           <p className='TimepieceList__heading'>Timepieces</p>
-          <div className="TimepieceList__container">
-        <ProductConsumer>
-          {(value) => {
-              return value.products.map( product => {
-                return <Timepiece 
-                  key={product.id}
-                  product={product}
-                />
-              })
-          }}
-      
-        </ProductConsumer>
+          <div className="TimepieceList__container"></div>
+        {products.map((product) => {
+          return (
+            <Timepiece 
+              key={product.id}
+              product={product}
+            />
+          )
+        })}
           </div>
-        </div> 
-       
       </React.Fragment>
-      // </div>
+     
     )
   }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import bag from '../images/bag.png'
 import { FaShoppingCart } from 'react-icons/fa'
 import '../styles/Navbar.css'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 //App components
@@ -6,11 +6,12 @@ import Navbar from './components/Navbar'
 import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
-import Details from './components/Details'
 import Default from './components/Default'
-import Cart from './components/Cart/Cart'
+import Cart from './components/cart/Cart'
+
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([])
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,8 +19,8 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList} />
-          <Route path='/cart' component={Cart} />
-          <Route path='/details' component={Details} />
+          <Route path='/cart' render={() => <Cart cartItems={cartItems} />} />
+          <Route path='/details'  />
           <Route component={Default} />
         </Switch>       
       </div>
