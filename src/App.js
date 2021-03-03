@@ -12,14 +12,27 @@ import Cart from './components/cart/Cart'
 
 const App = () => {
   const [cartItems, setCartItems] = useState([])
+
+  const onAdd = (product) => {
+    const exist = cartItems.find((item) => item.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((item) => 
+            item.id === product.id ? {...exist, count: exist.count + 1 } : item
+      )
+    )
+      } else {
+        setCartItems([...cartItems, {...product, count: 1}])
+      }
+    }
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route path='/timepieces' component={TimepieceList} />
-          <Route path='/cart' render={() => <Cart cartItems={cartItems} />} />
+          <Route path='/timepieces' render={() => <TimepieceList onAdd={onAdd} />} />
+          <Route path='/cart' render={() => <Cart cartItems={cartItems} onAdd={onAdd} />} />
           <Route path='/details'  />
           <Route component={Default} />
         </Switch>       

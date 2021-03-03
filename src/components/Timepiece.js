@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import '../styles/Timepiece.css'
 import PropTypes from 'prop-types'
 
-export default function Timepiece ({product}){
-       const { id, title, img, price, inCart } = product
+export default function Timepiece ({product, onAdd}){
+       const { title, img, price, inCart } = product
     return (
       <div className='Timepiece'>
         <div className="Timepiece__card">
@@ -20,6 +20,7 @@ export default function Timepiece ({product}){
           <button 
             className='Timepiece__cart-btn' 
             disabled={inCart ? true : false} 
+            onClick={() => onAdd(product)}
             >
             { inCart ? (
             <p className='disabled' disabled>

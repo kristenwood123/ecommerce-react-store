@@ -4,7 +4,7 @@ import data from '../data'
 import '../styles/TimepiecesList.css'
 
 
-const TimepieceList  = () => { 
+const TimepieceList  = ({onAdd}) => { 
   const { products } = data; 
  
     return (
@@ -17,6 +17,7 @@ const TimepieceList  = () => {
             <Timepiece 
               key={product.id}
               product={product}
+              onAdd={onAdd}
             />
           )
         })}
