@@ -25,6 +25,19 @@ const App = () => {
         setCartItems([...cartItems, {...product, count: 1}])
       }
     }
+
+    const onRemove = (product) => {
+      const exist = cartItems.find((item) => item.id === product.id);
+      if(exist.count === 1) {
+        setCartItems(cartItems.filter((item) => item.id !== product.id))
+      } else {
+        setCartItems(
+        cartItems.map((item) => 
+            item.id === product.id ? {...exist, count: exist.count - 1 } : item
+          )
+        )
+      }
+    }
   return (
     <BrowserRouter>
       <div className="App">
@@ -32,7 +45,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' render={() => <TimepieceList onAdd={onAdd} />} />
-          <Route path='/cart' render={() => <Cart cartItems={cartItems} onAdd={onAdd} />} />
+          <Route path='/cart' render={() => <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path='/details'  />
           <Route component={Default} />
         </Switch>       

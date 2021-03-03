@@ -8,8 +8,10 @@ import CartTotals from './CartTotals'
 
 
 export default function Cart({cartItems, onAdd, onRemove}) {
-
-   const {id, title, img, price, total, count} = cartItems;
+  const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.count, 0)
+  const taxPrice = itemsPrice * 0.10;
+  const shippingPrice = itemsPrice > 1000 ? 0 : 50;
+  const totalPrice = itemsPrice + taxPrice + shippingPrice;
     return (
       <div className='cart'>
         {/* <h1 className='cart__heading'>Your Cart</h1> */}
@@ -29,14 +31,23 @@ export default function Cart({cartItems, onAdd, onRemove}) {
             </div>
                 <div className="cartItem__column4">{item.count}</div>
                 <span><button onClick={() => onRemove(item)} className='minus'>-</button></span>
-                  <div className="cartItem__column5">
+                  <div className="cartItem__column5">{'trshcan'}
                     <img className='trashcan'  src='' alt=""/>
                   </div>
             <div className="cartItem__column6">
-              <strong>${item.total}.00</strong>
+              <strong>${item.price.toFixed(2)}</strong>
             </div>  
             </div>    
         ))}
+        {cartItems.length !== 0 && (
+          <>
+            <hr></hr>
+              <div className="row">
+                <div>Total</div>
+                <div>{itemsPrice.toFixed(2)}</div>
+              </div>
+          </>
+        )}
       </div>
     )
   };
