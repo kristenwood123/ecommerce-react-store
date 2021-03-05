@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 //App components
@@ -14,6 +14,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([])
 
   const onAdd = (product) => {
+    
     const exist = cartItems.find((item) => item.id === product.id);
     if (exist) {
       setCartItems(
