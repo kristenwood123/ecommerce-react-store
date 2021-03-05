@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Timepiece from './Timepiece'
 import data from '../data'
 import '../styles/TimepiecesList.css'
