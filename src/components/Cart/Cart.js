@@ -16,21 +16,24 @@ export default function Cart({cartItems, onAdd, onRemove}) {
     return (
       <div>
         <h1 className='cart__heading'>Your Cart</h1>
-        <div>{cartItems.length === 0 ? <EmptyCart /> : ''}</div>
-        
+        {cartItems.length === 0 ? <EmptyCart /> : ''}
+        <div className='cart__heading'>
+          <tr className='columns'>
+              <th className='column'>PRODUCT</th>            
+              <th className='column'>QUANTITY</th>
+              <th className='column'>ITEMS</th>
+          </tr>
+         </div>
         {cartItems.map((item) => {
           const {id, img, title, price, count } = item;
-
           return (
+            <>
             <div key={id}>
             <div className='small-container cart-page'>
+            
               <table>
                 <tbody>
-                <tr>
-                  <th>PRODUCT</th>            
-                  <th>QUANTITY</th>
-                  <th>ITEMS</th>
-                </tr>
+                
                     <tr>
                       <td>
                         <div className="cart_info">
@@ -41,9 +44,10 @@ export default function Cart({cartItems, onAdd, onRemove}) {
                             </div>
                         </div>
                       </td>
-                      <td><button onClick={() => onAdd(item)} className='add button'>+</button>
-                                  {count}
-                                <button onClick={() => onRemove(item)} className='minus button'>-</button></td>
+                      <td>
+                      <button onClick={() => onAdd(item)} className='add button'>+</button>
+                        {count}
+                      <button onClick={() => onRemove(item)} className='minus button'>-</button></td>
                     {cartItems.length !== 0 && (
                     <td>${price * count}.00</td>)}
                     </tr>
@@ -51,18 +55,14 @@ export default function Cart({cartItems, onAdd, onRemove}) {
               </table>
               </div> 
             </div>
-          )
-          })}
-            
-          
-        <div className='total_cost' style={{ display:checkcart()}}>
-                    <div className='checkout'>Tax: ${taxPrice.toFixed(2)}</div>
-                    <div className='checkout'>Shipping: ${shippingPrice.toFixed(2)}</div>
-                      <div className='checkout'> TOTAL COST:<strong> ${totalPrice.toFixed(2)}</strong></div>
-                     <Checkout itemsPrice={itemsPrice} />
-                    <div className='free_shipping'>*Free Shipping when you spend over $1,000</div>
-            
-                    </div>
+          </>)})}
+          <div className='total_cost' style={{ display:checkcart()}}>
+              <div className='checkout'>Tax: ${taxPrice.toFixed(2)}</div>
+                <div className='checkout'>Shipping: ${shippingPrice.toFixed(2)}</div>
+                <div className='checkout'> TOTAL COST:<strong> ${totalPrice.toFixed(2)}</strong></div>
+                <Checkout itemsPrice={itemsPrice} />
+                <div className='free_shipping'>*Free Shipping when you spend over $1,000</div>
+              </div>
     </div>
     )
   };
