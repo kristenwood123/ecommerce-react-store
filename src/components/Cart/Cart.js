@@ -30,7 +30,6 @@ export default function Cart({cartItems, onAdd, onRemove}) {
             <>
             <div key={id}>
             <div className='small-container cart-page'>
-            
               <table>
                 <tbody>
                 
@@ -60,7 +59,7 @@ export default function Cart({cartItems, onAdd, onRemove}) {
               <div className='checkout'>Tax: ${taxPrice.toFixed(2)}</div>
                 <div className='checkout'>Shipping: ${shippingPrice.toFixed(2)}</div>
                 <div className='checkout'> TOTAL COST:<strong> ${totalPrice.toFixed(2)}</strong></div>
-                <Checkout itemsPrice={itemsPrice} />
+                <Checkout totalPrice={totalPrice} />
                 <div className='free_shipping'>*Free Shipping when you spend over $1,000</div>
               </div>
     </div>
