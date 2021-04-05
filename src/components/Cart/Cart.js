@@ -3,7 +3,7 @@ import '../../styles/Cart.css'
 import EmptyCart from './EmptyCart'
 import Checkout from './Checkout'
 
-export default function Cart({cartItems, onAdd, onRemove}) {
+function Cart({ cartItems, onAdd, onRemove }) {
   const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.count, 0)
   const taxPrice = itemsPrice * 0.10;
   const shippingPrice = itemsPrice > 1000 ? 0 : itemsPrice * .03;
@@ -65,3 +65,4 @@ export default function Cart({cartItems, onAdd, onRemove}) {
     </div>
     )
   };
+export default Cart
