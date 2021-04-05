@@ -7,7 +7,7 @@ import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Default from './components/Default'
-// import Cart from './components/cart/Cart'
+import Cart from './components/checkout/Cart'
 
 
 const App = () => {
