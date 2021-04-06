@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { NavLink as Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
@@ -23,7 +23,7 @@ export const NavLink = styled(Link)`
 
   @media screen and (max-width: 768px) {
     display: none;
-  }
+  } 
 `
 
 export const Bars = styled(FaBars)`
@@ -44,7 +44,6 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -24px;
 
   @media screen and (max-widht: 768px) {
     display: none;
