@@ -17,6 +17,10 @@
   text-align: center;
 }
 
+.footer__list li {
+  margin: 10px;
+}
+
 .footer__input {
   width: 300px;
   height: 45px;
