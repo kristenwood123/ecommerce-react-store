@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink as Link } from 'react-router-dom'
 import styled from 'styled-components'
-import '../../styles/Navbar.css'
 import { FaBars } from 'react-icons/fa'
 
 export const Nav = styled.nav`
-background: #000;
+background: white;
+position: sticky;
 height: 80px;
 display: flex;
 justify-content: space-between;
@@ -21,14 +21,15 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
 
-  &.active {
-    color: gray; 
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `
 
 export const Bars = styled(FaBars)`
   display: none;
-  color: #fff;
+  color: black;
+  border-raidus: 6px;
 
   @media screen and (max-width: 768px) {
     display: block;

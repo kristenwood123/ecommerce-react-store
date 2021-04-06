@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Cart.css'
+import '../../styles/index.css'
 import { Link } from 'react-router-dom'
 
 export default function EmptyCart() {

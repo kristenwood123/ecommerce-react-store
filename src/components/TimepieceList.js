@@ -1,7 +1,7 @@
 import React from 'react'
 import Timepiece from './Timepiece'
 import data from '../data'
-import '../styles/TimepiecesList.css'
+import '../styles/index.css'
 
 
 const TimepieceList  = ({onAdd}) => { 

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Cart.css'
+import '../../styles/index.css'
 import EmptyCart from './EmptyCart'
 import Checkout from './Checkout'
 

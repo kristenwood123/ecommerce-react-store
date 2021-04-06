@@ -1,0 +1,309 @@
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.home__container {
+  margin: 0 auto;
+  background-color: green;
+  font-family: "Roboto Slab", serif;
+}
+
+.home__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  background-color: pink;
+}
+
+.home__card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.home__card img {
+  max-width: 300px;
+}
+
+.home__logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: #9fa6ab;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 678px) {
+  .home__wrapper {
+    flex-direction: row;
+  }
+
+  .home__card img {
+    max-width: 300px;
+  }
+}
+
+/* Cart --------------------------------------------- */
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  height: 100vh;
+}
+
+.cart__heading {
+  margin: 0 auto;
+  font-weight: 200;
+  display: flex;
+  justify-content: center;
+}
+
+.emptycart {
+  text-align: center;
+  color: #788188;
+  font-family: "Roboto Slab", "serif";
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptycart__btn1 {
+  background-color: white;
+  color: #788188;
+  font-family: "Roboto-slab", "serif";
+  justify-self: left;
+  font-size: 14px;
+  border: 1px solid black;
+  width: 250px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin: 50px;
+  width: 80%;
+}
+
+.column {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.small-container {
+  margin-left: 30px;
+}
+
+.cart-page {
+  margin: 80px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart_info {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 17px;
+  margin-left: 40px;
+  justify-self: center;
+  color: #272727;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
+}
+.cart_info img {
+  max-width: 100px;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  font-family: "Roboto-slab", "serif";
+  align-self: center;
+  font-size: 17px;
+  margin-left: 40px;
+  justify-self: center;
+  color: #272727;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
+}
+
+.trashcan {
+  cursor: pointer;
+}
+
+.button {
+  max-height: 20px;
+  margin: 5px;
+}
+
+.total_cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 100px;
+  font-family: "Roboto-slab", "serif";
+}
+
+.checkout {
+  margin-bottom: 4px;
+  font-size: 17px;
+  margin-left: 40px;
+  justify-self: center;
+  color: #272727;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
+}
+
+.free_shipping {
+  color: #ababab;
+  font-size: 12px;
+}
+
+/* Timepiece----------------------------------------------- */
+.Timepiece {
+  border-bottom: 0.5px solid rgb(236, 236, 236);
+  padding-bottom: 20px;
+  font-family: "Roboto Slab", serif;
+}
+
+.Timepiece__card {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  cursor: pointer;
+  width: 100vh;
+}
+
+.Timepiece__card-watch {
+  width: 80px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.Timepiece:hover {
+  opacity: 0.7;
+}
+
+.Timepiece__title {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  font-size: 17px;
+  margin-left: 40px;
+  justify-self: center;
+  color: #272727;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
+}
+
+.Timepiece__price {
+  align-self: flex-end;
+  margin-left: 50px;
+  color: #9a9fa3;
+}
+
+.Timepiece__cart-btn {
+  color: white;
+  background-color: #7796a8;
+  cursor: pointer;
+  border: none;
+  width: 150px;
+  border-radius: 2px;
+  outline: none;
+  margin-left: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px;
+  margin-top: -40px;
+}
+
+.disabled {
+  color: rgb(216, 216, 216);
+  font-size: 15px;
+  font-family: "Roboto Slab", serif;
+}
+
+.enabled {
+  color: white;
+  font-size: 15px;
+  font-family: "Roboto Slab", serif;
+}
+
+/* Timepiece heading ---------------------------------------- */
+.TimepieceList__heading {
+  display: flex;
+  justify-content: center;
+  color: #3d4246;
+  font-size: 40px;
+  letter-spacing: 1px;
+  border-bottom: 0.5px solid rgb(236, 236, 236);
+  padding-bottom: 20px;
+}
+
+/* Footer ---------------------------------------------------- */
+.footer {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+  font-family: "Roboto Slab", serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.footer__list {
+  color: #a3a5a7;
+  display: flex;
+  align-self: center;
+  list-style-type: none;
+  text-align: center;
+}
+
+.footer__list li {
+  margin: 10px;
+}
+
+.footer__input {
+  width: 300px;
+  height: 45px;
+  border: 1px solid #e8e9eb;
+  padding-left: 5px;
+  font-size: 15px;
+  font-family: "Roboto-slab", "serif";
+}
+
+.footer__btn {
+  background-color: #7796a8;
+  color: white;
+  padding: 11px;
+  font-size: 14px;
+  border: none;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.footer__text {
+  color: rgb(37, 37, 37);
+  font-size: 18px;
+  font-weight: 400;
+}
