@@ -4,18 +4,25 @@
   box-sizing: border-box;
 }
 
+.home__container {
+  margin: 0 auto;
+}
+
 .home__wrapper {
   display: flex;
-  width: 80%;
   align-items: center;
+  flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
 }
 
-.home__one,
-.home__two,
-.home__three {
+.home__card {
   margin: 10px;
+  text-align: center;
+}
+
+.home__card img {
+  max-width: 100%;
 }
 
 .home__logo-wrapper {
@@ -24,13 +31,10 @@
   justify-content: center;
 }
 
-.home__text-heading {
-  color: #3d4246;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
 p {
   color: #9fa6ab;
   font-weight: 200;
+}
+
+@media screen and (min-width: 678px) {
 }

@@ -3,35 +3,33 @@ import '../styles/Home.css'
 
 const Home = () => {
   return (
-    <div className='home'>
-      <div className='home__logo-wrapper'>
+    <section className='home'>
+      <div className="home__container">
+      <article className='home__logo-wrapper'>
         <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
-      </div>
+      </article>
+
     <div className="home__wrapper">
-      <div className="home__one">
+      <article className="home__card">
         <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_1_360x.jpg?v=1610397995" alt=""/>
           <p className='home__text-heading'>BRILLIANCE IN BASICS</p>
             <p>Purpose built timepieces. Sangin Instruments’ watches are simple, functional, and reliable. Looking good no matter what the occasion. Each timepiece is designed, prototyped, tested and inspected in California by two people who are focused on bringing you the brillance in the basics.</p>
-        </div>
+        </article>
 
-      <div className="home__two">
+      <article className="home__card">
         <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/test_image_2_b84c169f-42ea-4caa-a3a2-e729759d204b_360x.jpg?v=1610397726" alt=""/>
         <p className='home__text-heading'>SELECTION IS CONTINUOUS</p>
           <p>Spending our time in Marine Special Operations we found that everyday you had to be better than the last. We bring this same mindset to our timepieces. Every model and every timepiece must be better than the last. Our customers are our friends and peers, they deserve the best product possible.</p>
-      </div>
+      </article>
       
-     <div className="home__three">
+     <article className="home__card">
         <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_3_360x.jpg?v=1610398124" alt=""/>
         <p className='home__text-heading'>LIMITED RUNS</p>
         <p>We pride ourselves on small batch production so we can focus on the finest details. Our interaction with our customers is vital to our developing the best timepieces and accessories. Please sign up today to get involved with our small community of adventures and collectors.</p>
-      </div>
+      </article>
     </div>
-
-    <p className='home__text-heading large'>
-      BECOME A MEMBER OF THE COMMUNITY
-    </p>
-
-  </div>
+</div>
+  </section>
   )
 }
 
