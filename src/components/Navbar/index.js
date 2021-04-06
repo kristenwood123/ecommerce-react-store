@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, NavLink } from './NavbarElements'
+import { Nav, NavLink, NavMenu, NavBtn, NavBtnLink, Bars } from './NavbarElements'
 import { FaShoppingCart } from 'react-icons/fa'
 
 const Navbar = () =>  {
