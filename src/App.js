@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 //App components
-import Navbar from './components/Navbar'
+import Navigation from './components/Navigation'
 import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navigation />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' render={() => <TimepieceList onAdd={onAdd} />} />
