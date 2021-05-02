@@ -4,7 +4,6 @@ import '../styles/index.css'
 const Home = () => {
   return (
     <section className='home'>
-      <div className="home__container">
       <article className='home__logo-wrapper'>
         <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
       </article>
@@ -28,7 +27,6 @@ const Home = () => {
         <p className='home__text'>We pride ourselves on small batch production so we can focus on the finest details. Our interaction with our customers is vital to our developing the best timepieces and accessories. Please sign up today to get involved with our small community of adventures and collectors.</p>
       </article>
     </div>
-</div>
   </section>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 //App components
 import Navigation from './components/Navigation'
 import TimepieceList from './components/TimepieceList'
