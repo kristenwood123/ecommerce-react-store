@@ -1,7 +1,8 @@
 :root {
   --clr-gray-font: #9fa6ab;
   --clr-blue-accent: #788188;
-  --font-main: "Roboto Slab", serif;
+  --clr-main-blue: #7796a8;
+  --font-main: "Roboto", sans-serif;
 }
 
 * {
@@ -47,7 +48,7 @@
 }
 
 .home__text-heading {
-  color: black;
+  color: gray;
   font-size: 18px;
 }
 
@@ -56,7 +57,6 @@
   color: var(--clr-gray-font);
   font-weight: 200;
   font-size: 14px;
-  max-width: 400px;
 }
 
 /* Cart --------------------------------------------- */
@@ -174,67 +174,63 @@ th {
 }
 
 /* Timepiece----------------------------------------------- */
-.Timepiece {
-  border-bottom: 0.5px solid rgb(236, 236, 236);
-  padding-bottom: 20px;
+.timepieceList {
+  display: grid;
+  font-family: var(--font-main);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 300px;
+  margin-bottom: 100px;
+  width: 75%;
+  grid-gap: 20px;
 }
 
-.Timepiece__card {
+.timepiece-text-container {
   display: flex;
-  flex-direction: row;
-  margin-left: 40px;
-  cursor: pointer;
-  width: 100vh;
 }
 
-.Timepiece__card-watch {
-  width: 80px;
-  padding-top: 40px;
-  padding-bottom: 20px;
+.timepiece {
+  border: 1px solid var(--clr-gray-font);
+  border-radius: 6px;
 }
 
-.Timepiece:hover {
+.timepieceList__heading {
+  padding-top: 100px;
+  text-align: center;
+  color: gray;
+  font-family: var(--font-main);
+}
+.timepiece:hover {
   opacity: 0.7;
 }
 
-.Timepiece__title {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  font-size: 17px;
-  margin-left: 40px;
-  justify-self: center;
-  color: #272727;
-  letter-spacing: 0.5px;
-}
-
-.Timepiece__price {
-  align-self: flex-end;
-  margin-left: 50px;
-  color: var(--clr-gray-font);
-}
-
-.Timepiece__cart-btn {
+.timepiece__cart-btn {
   color: white;
-  background-color: #7796a8;
+  background-color: var(--clr-main-blue);
   cursor: pointer;
   border: none;
   width: 150px;
   border-radius: 2px;
   outline: none;
   margin-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.timepiece__cart-btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid var(--clr-main-blue);
 }
 
 .button-container {
-  display: flex;
-  justify-content: flex-end;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 40px;
-  margin-top: -40px;
+  margin-bottom: 20px;
 }
 
-.disabled {
+.button-container p {
+  margin: 0;
+}
+
+/* .disabled {
   color: rgb(216, 216, 216);
   font-size: 15px;
 }
@@ -242,10 +238,10 @@ th {
 .enabled {
   color: white;
   font-size: 15px;
-}
+} */
 
 /* Timepiece heading ---------------------------------------- */
-.TimepieceList__heading {
+.timepieceList__heading {
   display: flex;
   justify-content: center;
   color: #3d4246;
@@ -289,7 +285,7 @@ th {
 }
 
 .footer__btn {
-  background-color: #7796a8;
+  background-color: var(--clr-main-blue);
   color: white;
   padding: 11px;
   font-size: 14px;
@@ -321,9 +317,10 @@ th {
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-auto-rows: 450px;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
     grid-column-gap: 15px;
     margin: 0 auto;
+    padding-bottom: 0;
   }
 
   .home__card {
@@ -358,5 +355,11 @@ th {
 
   .footer__btn {
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 1145px) {
+  .timepieceList {
+    width: 60%;
   }
 }

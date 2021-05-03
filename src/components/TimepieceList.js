@@ -9,21 +9,19 @@ const TimepieceList  = ({onAdd}) => {
  
     return (
       <React.Fragment> 
-        <div className='TimepieceList'>
-          <p className='TimepieceList__heading'>Timepieces</p>
-          <div className="TimepieceList__container"></div>
-        {products.map((product) => {
-          return (
-            <Timepiece 
-              key={product.id}
-              product={product}
-              onAdd={onAdd}
-            />
-          )
-        })}
-          </div>
-      </React.Fragment>
-     
+          <h1 className='timepieceList__heading'>Timepieces</h1>
+           <div className='timepieceList'>
+            {products.map((product) => {
+              return (
+                <Timepiece 
+                  key={product.id}
+                  product={product}
+                  onAdd={onAdd}
+                />
+              )
+            })}
+        </div>
+      </React.Fragment>  
     )
   }
 

@@ -6,31 +6,34 @@ import PropTypes from 'prop-types'
 export default function Timepiece ({product, onAdd}){
        const { title, img, price, inCart } = product
     return (
-      <div className='Timepiece'>
-        <div className="Timepiece__card">
-            <div className="Timepiece__img-container">        
-          <Link to='/details'>
-            <img src={img} alt="product" className='Timepiece__card-watch'/>
-          </Link>
-          </div> 
-          <div className="Timepiece__title">{title}</div>          
-        </div>             
-      <div className="button-container">
-      <div className="Timepiece__price">${price}.00</div>
-          <button 
-            className='Timepiece__cart-btn' 
-            disabled={inCart ? true : false} 
-            onClick={() => onAdd(product)}
-            >
-            { inCart ? (
-            <p className='disabled' disabled>
-            {'IN CART'}
-            </p>
-            ) : (
-              <p className='enabled'>ADD TO CART</p>
-            )}</button>
-          </div>        
-        </div> 
+      <div className='timepiece'>
+        <div className="timepiece__card">
+            <div className="timepiece__img-container">        
+              <Link to='/details'>
+                <img src={img} alt="product" className='timepiece__card-watch'/>
+              </Link>
+            </div> 
+          <div className="timepiece-text-container">
+          <p className="timepiece__title">{title}</p>
+          <p className="timepiece__price">${price}.00</p>
+          </div>
+        <div className="button-container">
+            <button 
+              className='timepiece__cart-btn' 
+              disabled={inCart ? true : false} 
+              onClick={() => onAdd(product)}
+              >
+              { inCart ? (
+              <p className='disabled' disabled>
+              {'IN CART'}
+              </p>
+              ) : (
+                <p className='enabled'>LEARN MORE</p>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>        
       )
     }
 
