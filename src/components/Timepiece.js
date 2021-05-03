@@ -28,7 +28,7 @@ export default function Timepiece ({product, onAdd}){
               {'IN CART'}
               </p>
               ) : (
-                <p className='enabled'>LEARN MORE</p>
+                <p className='enabled'>ADD TO CART</p>
               )}
             </button>
           </div>

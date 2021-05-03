@@ -8,7 +8,7 @@ const TimepieceList  = ({onAdd}) => {
   const { products } = data; 
  
     return (
-      <React.Fragment> 
+      <div> 
           <h1 className='timepieceList__heading'>Timepieces</h1>
            <div className='timepieceList'>
             {products.map((product) => {
@@ -21,7 +21,7 @@ const TimepieceList  = ({onAdd}) => {
               )
             })}
         </div>
-      </React.Fragment>  
+      </div>  
     )
   }
 
