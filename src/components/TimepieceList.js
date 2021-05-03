@@ -4,11 +4,12 @@ import data from '../data'
 import '../styles/index.css'
 
 
-const TimepieceList  = ({onAdd}) => { 
+
+const TimepieceList  = () => { 
   const { products } = data; 
- 
+
     return (
-      <div> 
+        <>
           <h1 className='timepieceList__heading'>Timepieces</h1>
            <div className='timepieceList'>
             {products.map((product) => {
@@ -16,12 +17,11 @@ const TimepieceList  = ({onAdd}) => {
                 <Timepiece 
                   key={product.id}
                   product={product}
-                  onAdd={onAdd}
                 />
               )
             })}
         </div>
-      </div>  
+      </>
     )
   }
 

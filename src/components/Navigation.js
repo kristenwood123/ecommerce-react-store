@@ -1,9 +1,11 @@
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { Navbar, Nav, Container } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom'
+import { useGlobalContext } from '.././context'
 
 const Navigation = () =>  {
+  const { cart } = useGlobalContext()
   return (
     <>
      <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
@@ -13,11 +15,13 @@ const Navigation = () =>  {
               <Nav>
                 <Navbar.Brand><img src="https://cdn.shopify.com/s/files/1/2293/1277/files/Sangin_Instruments_Logo_Black_f8c6bcd2-aca5-405e-8517-e132e2156e76_180x.png?v=1546999822" alt="sangin logo" href='#home' style={{filter: 'brightness(0) invert(1)'}}/> </Navbar.Brand>
                     <Nav.Link href='/' variant='dark'>HOME</Nav.Link>
-                    <Nav.Link href='/timepieces'>SHOP</Nav.Link>
+                    <Link to='/timepieces'>SHOP</Link>
                     <Nav.Link href='/'>ABOUT</Nav.Link>
                     <Nav.Link href='/timepieces'>STORY</Nav.Link>      
                     <Nav.Link href='/timepieces'>CONNECT</Nav.Link>      
-                    <Nav.Link href='/cart'> <FaShoppingCart className='Navbar__bag'/></Nav.Link>
+                    <Link to='/cart'> <FaShoppingCart 
+                    className='Navbar__bag'
+                    />{cart.length}</Link>
               </Nav>  
             </Navbar.Collapse>  
           </Container>           

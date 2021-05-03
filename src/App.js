@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 //App components
 import Navigation from './components/Navigation'
 import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Default from './components/Default'
-import Cart from './components/checkout/Cart'
+import Cart from './components/Cart'
 
 
 const App = () => {

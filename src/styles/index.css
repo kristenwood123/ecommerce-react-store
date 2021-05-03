@@ -113,7 +113,7 @@
   opacity: 0.7;
 }
 
-.timepiece__cart-btn {
+.cart-btn {
   color: white;
   background-color: var(--clr-main-blue);
   cursor: pointer;
@@ -126,7 +126,7 @@
   padding-bottom: 5px;
 }
 
-.timepiece__cart-btn:hover {
+.cart-btn:hover {
   background-color: white;
   color: black;
   border: 1px solid var(--clr-main-blue);
