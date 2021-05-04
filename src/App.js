@@ -7,12 +7,18 @@ import Navigation from './components/Navigation'
 import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
-import Default from './components/Default'
 import Cart from './components/Cart'
-
+import { useGlobalContext } from './context';
 
 const App = () => {
-  
+  const { loading } = useGlobalContext()
+  if(loading) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
   return (
     <BrowserRouter>
       <div className="App" style={{backgroundColor: '#f7f4f4'}}>
@@ -22,9 +28,9 @@ const App = () => {
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart}/>
           <Route path='/details'  />
-          <Route component={Default} />
+          {/* <Route component={Default} /> */}
         </Switch>       
-    <Footer />
+    {/* <Footer /> */}
     </div>
     </BrowserRouter>
   );

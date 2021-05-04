@@ -1,29 +1,50 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useReducer, useEffect } from 'react'
+import reducer from './reducer'
+import data from './data'
 
 const AppContext = React.createContext()
+const { products } = data; 
 
-const PAGE_PRODUCTS = 'products'
-const PAGE_CART = 'cart'
+//cartContext
+const initialState = {
+  loading: false,
+  cart: products,
+  total: 0,
+  amount: 0
+}
 
 const AppProvider = ({children}) => {
-const [cart, setCart] = useState([])
-const [page, setPage] = useState(PAGE_PRODUCTS)
+const [state, dispatch] = useReducer(reducer, initialState)
 
+const clearCart = () => {
+  dispatch({type: 'CLEAR_CART'})
+}
 
-  const addToCart = (product) => {
-    setCart([...cart, product])
-  }
+const remove = (id) => {
+  dispatch({type: 'REMOVE', payload: id})
+}
 
-  const goToCart = (nextPage) => {
-    setPage(nextPage)
-  }
+const increase = (id) => {
+  dispatch({type: 'INCREASE', payload: id})
+}
 
-  return <AppContext.Provider value={{
+const decrease = (id) => {
+  dispatch({type: 'DECREASE', payload: id})
+}
+
+const addToCart = (id) => {
+  dispatch({type: 'ADD_TO_CART', payload: id}) 
+}
+
+  return <AppContext.Provider 
+  value={{
+    ...state,
+    clearCart,
     addToCart,
-    goToCart,
-    cart,
-    page,
-    PAGE_CART
+    remove,
+    increase, 
+    decrease,
+    products
   }}>
     {children}
   </AppContext.Provider>

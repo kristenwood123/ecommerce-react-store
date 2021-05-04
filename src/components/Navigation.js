@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useGlobalContext } from '.././context'
 
 const Navigation = () =>  {
-  const { cart } = useGlobalContext()
+  const { amount } = useGlobalContext()
   return (
     <>
      <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
@@ -21,7 +21,7 @@ const Navigation = () =>  {
                     <Nav.Link href='/timepieces'>CONNECT</Nav.Link>      
                     <Link to='/cart'> <FaShoppingCart 
                     className='Navbar__bag'
-                    />{cart.length}</Link>
+                    />{amount}</Link>
               </Nav>  
             </Navbar.Collapse>  
           </Container>           
