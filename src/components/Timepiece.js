@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
   const { addToCart, remove } = useGlobalContext()
-  const { title, img, price, info, inCart } = product
+  const { title, img, price, info, inCart, id } = product
 
     return (
       <Card>
@@ -25,7 +25,7 @@ export default function Timepiece ({product}){
           <button 
             className='cart-btn' 
             disabled={inCart ? true : false} 
-            onClick={() => console.log(product)}>
+            onClick={() => addToCart(id)}>
               {inCart ? (
                   <p disabled>In Cart</p>
                 ) : (

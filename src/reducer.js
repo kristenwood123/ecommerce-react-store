@@ -4,6 +4,14 @@ const reducer = (state, action) => {
   if (action.type === 'CLEAR_CART') {
     return {...state, cart: []}
   }
+
+  //  if (action.type === 'ADD') {
+  //   return {...state, cart: action.payload.map((item) => {
+  //     if(item.id === action.payload) {
+  //       return {...state, cart: item}
+  //   })}
+  // }
+
   if(action.type === 'REMOVE') {
     return {...state, cart: state.cart.filter((cartItem) => 
         cartItem.id !== action.payload)}

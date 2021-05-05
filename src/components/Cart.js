@@ -6,7 +6,6 @@ import { useGlobalContext } from '.././context'
 
 const Cart = () => {
   const { total, clearCart, cart } = useGlobalContext();
-
    if (cart.length === 0) {
     return (
       <CartSect>
