@@ -35,7 +35,7 @@ const decrease = (id) => {
 }
 
 const addItem = (item) => {
-dispatch({type: 'ADD', payload: item})
+dispatch({type: 'ADD', payload: {...item}})
 }
 
 

@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
   const { addItem } = useGlobalContext()
-  const { title, img, price, info, inCart, id } = product
+  const { title, img, price, info, inCart, id, total } = product
 
     return (
       <Card>

@@ -2,12 +2,12 @@ const reducer = (state, action) => {
   
    if (action.type === 'ADD') {
      const item = action.payload
-     const itemExists = state.cart.find((x) => x.product === item.product)
+     const itemExists = state.cart.find((id) => item.id === id.item)
 
      if(itemExists) {
        return {
          ...state,
-         cart: state.cart.map((x) => x.product === itemExists.product ? item : x)
+         cart: state.cart.map((item) => item === itemExists.item ? itemExists : item)
        }
      } else {
         return {
