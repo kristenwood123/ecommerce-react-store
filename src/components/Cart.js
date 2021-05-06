@@ -3,15 +3,20 @@ import '../styles/index.css'
 import CartItem from './CartItem'
 import styled from 'styled-components'
 import { useGlobalContext } from '.././context'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
   const { total, clearCart, cart } = useGlobalContext();
    if (cart.length === 0) {
     return (
       <CartSect>
-        <header>
+        <header style={{color: 'white'}}>
           <h2>Your Cart</h2>
           <h4 className='empty-cart'>is currently empty</h4>
+          <div className='btn'>
+            <Link to='/timepieces'>
+            <button className='emptycart__btn1'>CONTINUE SHOPPING</button></Link>
+          </div>
         </header>
      </CartSect>
     )

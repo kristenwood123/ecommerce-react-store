@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <HomeSection>
       <article className='home__logo-wrapper'>
-        <img className='logo' src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
+        <img className='logo' style={{filter: 'brightness(0) invert(1)'}} src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
       </article>
 
     <HomeWrapper>
@@ -38,7 +38,7 @@ const HomeSection= styled.section`
   align-items: center;
   margin: 0 auto;
   padding-top: 20px;
-  background-color: var(--color-background);
+  background-color: #000;
 
   .home__logo-wrapper {
   display: flex;
