@@ -1,16 +1,26 @@
-
-
 const reducer = (state, action) => {
+  
+   if (action.type === 'ADD') {
+     const item = action.payload
+     const itemExists = state.cart.find((x) => x.product === item.product)
+
+     if(itemExists) {
+       return {
+         ...state,
+         cart: state.cart.map((x) => x.product === itemExists.product ? item : x)
+       }
+     } else {
+        return {
+          ...state,
+          cart: [...state.cart, item]
+        }
+     }
+  }
+
+
   if (action.type === 'CLEAR_CART') {
     return {...state, cart: []}
   }
-
-  //  if (action.type === 'ADD') {
-  //   return {...state, cart: action.payload.map((item) => {
-  //     if(item.id === action.payload) {
-  //       return {...state, cart: item}
-  //   })}
-  // }
 
   if(action.type === 'REMOVE') {
     return {...state, cart: state.cart.filter((cartItem) => 
@@ -37,7 +47,6 @@ const reducer = (state, action) => {
     return {...state, cart: tempCart}
   }
  
-
   return state
 }
 

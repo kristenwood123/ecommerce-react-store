@@ -5,7 +5,7 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 
 
 const CartItem = ({ id, img, title, price, amount }) => {
-  const { remove, increase, decrease } = useGlobalContext()
+  const { removeItem, increase, decrease } = useGlobalContext()
 
   return (
     <CartItemArticle>
@@ -16,7 +16,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
         <h4 className='item-price'>${price}</h4>
         {/* remove button */}
         <button className='remove-btn'
-        onClick={() => remove(id)}>
+        onClick={() => removeItem(id)}>
           remove
         </button>
       </div>

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
-  const { addToCart, remove } = useGlobalContext()
+  const { addItem } = useGlobalContext()
   const { title, img, price, info, inCart, id } = product
 
     return (
@@ -25,7 +25,7 @@ export default function Timepiece ({product}){
           <button 
             className='cart-btn' 
             disabled={inCart ? true : false} 
-            onClick={() => addToCart(id)}>
+            onClick={() => addItem(product)}>
               {inCart ? (
                   <p disabled>In Cart</p>
                 ) : (
