@@ -33,12 +33,12 @@ const Cart = () => {
         <hr />
         <div className='cart-total'>
           <h4>
-            total <span>{total}</span>
+            total <span>${total}</span>
           </h4>
         </div>
         <button
           className='btn clear-btn'
-          onClick={clearCart}
+          onClick={() => clearCart(cart)}
         >
           clear cart
         </button>

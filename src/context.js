@@ -13,14 +13,29 @@ const initialState = {
   cart: [],
   total: 0,
   amount: 0,
+  inCart: false
 }
 
 const AppProvider = ({children}) => {
 const [state, dispatch] = useReducer(reducer, initialState)
+const { inCart } = products
 
-const clearCart = () => {
+const clearCart = (cart) => {
+  {cart.forEach((item) => item.inCart = false)}
+  showText(inCart, state.cart)
   dispatch({type: 'CLEAR_CART'})
 }
+
+const showText = (inCart) => {
+  if(inCart) {
+    state.cart.inCart = true
+    return 'In Cart'
+  } 
+  else {
+    state.cart.inCart = false
+    return 'Add to Cart'
+      }
+  }
 
 const removeItem = (id) => {
   dispatch({type: 'REMOVE', payload: id})
@@ -35,8 +50,15 @@ const decrease = (id) => {
 }
 
 const addItem = (item) => {
+  if(item.inCart === false) { 
+    item.inCart = true 
+  }
 dispatch({type: 'ADD', payload: {...item}})
 }
+
+useEffect(() => {
+  dispatch({type: 'GET_TOTAL'})
+}, [state.cart])
 
 
   return <AppContext.Provider 
@@ -47,7 +69,8 @@ dispatch({type: 'ADD', payload: {...item}})
     decrease,
     products,
     addItem,
-    removeItem
+    removeItem,
+    showText
   }}>
     {children}
   </AppContext.Provider>
