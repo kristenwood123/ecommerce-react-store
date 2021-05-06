@@ -13,9 +13,9 @@ const Cart = () => {
         <header style={{color: 'white'}}>
           <h2>Your Cart</h2>
           <h4 className='empty-cart'>is currently empty</h4>
-          <div className='btn'>
+          <div>
             <Link to='/timepieces'>
-            <button className='emptycart__btn1'>CONTINUE SHOPPING</button></Link>
+            <button className='btn'>CONTINUE SHOPPING</button></Link>
           </div>
         </header>
      </CartSect>

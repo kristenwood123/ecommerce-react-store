@@ -21,13 +21,12 @@ const App = () => {
   }
   return (
     <BrowserRouter>
-      <div className="App" style={{backgroundColor: '#000'}}>
+      <div className="App" style={{backgroundColor: '#000', minHeight: '100vh', position: 'relative', padding: '0 0 100px'}}>
         <Navigation />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart}/>
-          <Route path='/details'  />
         </Switch>       
       <Footer />
     </div>

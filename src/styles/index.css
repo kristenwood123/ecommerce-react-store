@@ -15,7 +15,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 .links {
@@ -37,14 +37,24 @@ body {
 /* Footer ---------------------------------------------------- */
 .footer {
   left: 0;
-  bottom: 0;
   right: 0;
   background-color: var(--color-background);
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 100px;
+  padding-top: 50px;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: none;
+  font-size: 14px;
 }
 
 .footer__list {
@@ -53,7 +63,7 @@ body {
   list-style-type: none;
   text-align: center;
   padding: 0;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .footer__list li {
@@ -97,10 +107,6 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  .footer {
-    margin-top: 80px;
-  }
-
   .footer-wrapper {
     display: flex;
     margin: 0;

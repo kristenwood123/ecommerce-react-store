@@ -34,7 +34,7 @@ const TimepieceList  = () => {
     font-family: var(--font-main);
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 400px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
     max-width: 790px;
     grid-gap: 20px;
   `
