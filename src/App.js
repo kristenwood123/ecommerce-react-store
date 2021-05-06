@@ -21,16 +21,15 @@ const App = () => {
   }
   return (
     <BrowserRouter>
-      <div className="App" style={{backgroundColor: '#f7f4f4'}}>
+      <div className="App" style={{backgroundColor: '#000'}}>
         <Navigation />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart}/>
           <Route path='/details'  />
-          {/* <Route component={Default} /> */}
         </Switch>       
-    {/* <Footer /> */}
+      <Footer />
     </div>
     </BrowserRouter>
   );

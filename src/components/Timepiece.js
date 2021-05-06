@@ -26,12 +26,7 @@ export default function Timepiece ({product}){
             className='cart-btn' 
             disabled={inCart ? true : false} 
             onClick={() => addItem(product)}>
-              {/* {inCart ? (
-                  <p disabled>In Cart</p>
-                ) : (
-                <p>Add to Cart</p>
-                )} */}
-                {showText(inCart)}
+              {showText(inCart)}
                 </button>
           </div>
      </Card>        

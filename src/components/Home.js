@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <HomeSection>
       <article className='home__logo-wrapper'>
-        <img src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
+        <img className='logo' src="https://cdn.shopify.com/s/files/1/2293/1277/files/TEST_IMAGE_d677443f-5916-4b2d-a772-eef1bf5b2cf2_540x.png?v=1610412480" alt="sangin logo"/>
       </article>
 
     <HomeWrapper>
@@ -39,6 +39,22 @@ const HomeSection= styled.section`
   margin: 0 auto;
   padding-top: 20px;
   background-color: var(--color-background);
+
+  .home__logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+@media screen and (min-width: 320px) {
+  .logo {
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  flex-direction: row;
+  }
+}
 `
 const Card = styled.article`
   margin-top: 10px;
@@ -47,10 +63,35 @@ const Card = styled.article`
   width: 100%;
   max-width: 500px;
 
+.home__text-heading {
+  color: gray;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.home__text {
+  margin-top: 10px;
+  color: var(--clr-gray-font);
+  font-weight: 200;
+  font-size: 14px;
+}
+
+ @media screen and (min-width: 320px) {
+   img {
+    max-width: 300px;
+  }
+}
+
   @media screen and (min-width: 768px) {
-    max-width: 450px;
-    height: 450px;
-    margin: 0 auto;
+   img {
+     max-width: 250px;
+   }
+  }
+
+    @media screen and (min-width: 996px) {
+    img {
+      max-width: 300px;
+    }
   }
 `
 
@@ -60,12 +101,9 @@ const HomeWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-auto-rows: 450px;
     padding-bottom: 100px;
-    grid-column-gap: 15px;
-    margin: 0 auto;
     padding-bottom: 0;
   }
 `

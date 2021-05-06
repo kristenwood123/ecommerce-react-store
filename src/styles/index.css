@@ -18,32 +18,6 @@ body {
   height: 100%;
 }
 
-.home__card img {
-  max-width: 300px;
-}
-
-.home__logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.home__logo-wrapper img {
-  max-width: 300px;
-}
-
-.home__text-heading {
-  color: gray;
-  font-size: 18px;
-}
-
-.home__text {
-  margin-top: 10px;
-  color: var(--clr-gray-font);
-  font-weight: 200;
-  font-size: 14px;
-}
-
 /* Cart --------------------------------------------- */
 .cart {
   margin-top: 70px;
@@ -57,7 +31,6 @@ body {
 
 /* Footer ---------------------------------------------------- */
 .footer {
-  position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
@@ -66,11 +39,10 @@ body {
   flex-direction: column;
   text-align: center;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 80px;
 }
 
 .footer__list {
-  color: #a3a5a7;
   display: flex;
   align-self: center;
   list-style-type: none;
@@ -85,16 +57,16 @@ body {
 .footer__input {
   width: 300px;
   height: 45px;
-  border: 1px solid #e8e9eb;
+  border: 1px solid white;
   padding-left: 5px;
   font-size: 15px;
-  font-family: "Roboto-slab", "serif";
+  background-color: black;
 }
 
 .footer__btn {
-  background-color: var(--clr-main-blue);
-  color: white;
-  padding: 11px;
+  background-color: white;
+  color: black;
+  padding: 12px;
   font-size: 14px;
   border: none;
   width: 150px;
@@ -102,7 +74,7 @@ body {
 }
 
 .footer__text {
-  color: rgb(37, 37, 37);
+  color: white;
   font-size: 18px;
   font-weight: 400;
 }
@@ -118,20 +90,26 @@ body {
   }
 }
 
-@media screen and (min-width: 768px) {
-  .home__card {
-    max-width: 450px;
-    height: 450px;
-    margin: 0 auto;
+@media screen and (min-width: 1024px) {
+  .footer {
+    margin-top: 80px;
   }
 
-  .home__logo-wrapper {
+  .footer-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0;
+    justify-content: space-between;
   }
 
-  .home__card img {
-    max-width: 280px;
+  .footer__btn {
+    margin-top: 0;
+  }
+
+  .footer__email {
+    display: flex;
+  }
+
+  .footer-text {
+    font-size: 16px;
   }
 }
