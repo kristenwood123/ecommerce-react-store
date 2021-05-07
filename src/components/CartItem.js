@@ -14,7 +14,6 @@ const CartItem = ({ id, img, title, price, amount }) => {
       <div className='itemDesc'>
         <h4>{title}</h4>
         <h4 className='item-price'>${price}</h4>
-        {/* remove button */}
         <button className='remove-btn'
         onClick={() => removeItem(id)}>
           remove
@@ -45,6 +44,8 @@ const CartItemArticle = styled.article`
   justify-content: center;
   margin: 0 auto;
   width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   
   .btn-container {
     display: flex;
@@ -57,10 +58,13 @@ const CartItemArticle = styled.article`
 
   .itemDesc {
     margin: 0;
+    width: 150px;
+    text-align: left;
   }
 
   .amount {
     margin-bottom: 0;
+    margin-left: 3px;
   }
 
   .arrow {

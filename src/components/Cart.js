@@ -5,8 +5,10 @@ import styled from 'styled-components'
 import { useGlobalContext } from '.././context'
 import { Link, Route } from 'react-router-dom'
 
+
 const Cart = () => {
   const { total, cart, user } = useGlobalContext();
+
    if (cart.length === 0) {
     return (
       <CartSect>
@@ -33,8 +35,7 @@ const Cart = () => {
         {cart.map((item) => {
           return <CartItem key={item.id} {...item} />
         })}
-
-  <hr />
+      <hr />
         <div className='cart-total'>
           <div><p><em>Taxes and shipping calculated at checkout</em></p></div>
           <div> <h4> total: <span>${total}</span></h4></div>

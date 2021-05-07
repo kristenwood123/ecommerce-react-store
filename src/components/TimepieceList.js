@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Timepiece from './Timepiece'
 import '../styles/index.css'
 import styled from 'styled-components'
@@ -7,11 +7,12 @@ import { useGlobalContext } from '../context'
 
 const TimepieceList  = () => { 
   const { products } = useGlobalContext()
+
     return (
-        <section className='TimepieceList' style={{margin: '0 auto'}}>
+        <section className='TimepieceList' style={{margin: '20px'}}>
           <h1 className='timepieceList__heading'>Timepieces</h1>
-          <p style={{marginLeft: '200px'}}>Shows 1 - 6 of 6 products</p>
            <div className='timepieceList'>
+            <p style={{marginLeft:'20%', color: 'white', marginTop: '20px'}}>Shows 1 - 6 of 6 products</p>
              <Grid>
             {products.map((product) => {
               return (

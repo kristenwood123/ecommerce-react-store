@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import '../styles/index.css'
@@ -6,9 +6,17 @@ import PropTypes from 'prop-types'
 import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
-  const { addItem, showText } = useGlobalContext()
+  const { addItem, showText, cart } = useGlobalContext()
   const { title, img, price, info, inCart } = product
 
+useEffect(() => {
+  if(inCart) {
+    if(cart.length === 0) {
+      product.inCart = false;
+      showText(inCart)
+    }
+  }
+  },[])
     return (
       <Card>
           <ImageContainer>
