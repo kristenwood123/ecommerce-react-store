@@ -25,6 +25,7 @@ const Cart = () => {
     return (
        <CartSect>
       <header>
+        {user && <h4 style={{paddingTop: '2rem'}}>{user.email}</h4>}
         <h3>Your cart</h3>
         <hr/>
       </header>
