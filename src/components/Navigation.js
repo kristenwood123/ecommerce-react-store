@@ -1,12 +1,22 @@
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { auth } from '../firebase'
 import { Link } from 'react-router-dom'
 import { useGlobalContext } from '.././context'
 
 
 const Navigation = () =>  {
-  const { amount } = useGlobalContext()
+  const { amount, dispatch, user } = useGlobalContext()
+  console.log(user);
+
+  const handleAuthentication = () => {
+    if(user) {
+      auth.signOut()
+      console.log('singed out')
+    }
+  }
+
   return (
     <>
      <Navbar collapseOnSelect fixed='top' expand='sm' bg='white' variant='light'>
@@ -15,9 +25,16 @@ const Navigation = () =>  {
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                 <Navbar.Brand><img src="https://cdn.shopify.com/s/files/1/2293/1277/files/Sangin_Instruments_Logo_Black_f8c6bcd2-aca5-405e-8517-e132e2156e76_180x.png?v=1546999822" alt="sangin logo" href='#home'/></Navbar.Brand>
-                    <Nav.Link href='/' variant='dark' >HOME</Nav.Link>
-                    <Link to='/timepieces' className='links'>SHOP</Link>                     
-                    <Nav.Link href='/checkout'>SIGN IN</Nav.Link>      
+                    <Nav.Link href='/' variant='dark' >Home</Nav.Link>
+                    <Link to='/timepieces' className='links'>Shop</Link>                     
+                    <Link to='/checkout' className='links'>Checkout</Link>                     
+                    <Link to='/checkout' className='links'> 
+                        <span onClick={handleAuthentication}>
+                          {user ?
+                           'SignOut' : 
+                           'SignIn'
+                           }</span>
+                      </Link>      
                     <Link to='/cart' className='links'> <FaShoppingCart 
                     className='Navbar__bag'
                     /> {amount}</Link>

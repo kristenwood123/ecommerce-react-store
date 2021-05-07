@@ -7,13 +7,13 @@ const AppContext = React.createContext(
 )
 const { products } = data; 
 
-//cartContext
 const initialState = {
   loading: false,
   cart: [],
   total: 0,
   amount: 0,
-  inCart: false
+  inCart: false,
+  user: null
 }
 
 const AppProvider = ({children}) => {
@@ -64,13 +64,14 @@ useEffect(() => {
   return <AppContext.Provider 
   value={{
     ...state,
+     products,
     clearCart,
     increase, 
     decrease,
-    products,
     addItem,
     removeItem,
-    showText
+    showText,
+    dispatch
   }}>
     {children}
   </AppContext.Provider>

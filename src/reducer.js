@@ -64,6 +64,13 @@ const reducer = (state, action) => {
     total = parseFloat(total.toFixed(2))
     return {...state, total, amount }
   }
+
+  if(action.type === 'SET_USER') {
+    return {
+      ...state,
+      user: action.user
+    }
+  }
  
   return state
 }

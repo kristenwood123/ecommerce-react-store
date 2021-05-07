@@ -16,7 +16,7 @@ export const Checkout = () => {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .auth(auth => {
+      .then((auth) => {
         history.push('/')
       })
       .catch(error => alert(error.message))
@@ -117,6 +117,7 @@ const CheckoutSection = styled.section`
       max-width: 428px;
       margin-top: 5px;
       margin-bottom: 5px;
+      padding-left: 10px;
     }  
 
     .btn-white {
