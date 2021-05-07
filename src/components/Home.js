@@ -34,9 +34,9 @@ const Home = () => {
 
 const HomeSection= styled.section`
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
   padding-top: 20px;
   background-color: #000;
 
@@ -57,8 +57,9 @@ const HomeSection= styled.section`
 }
 `
 const Card = styled.article`
-  margin-top: 10px;
-  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: 0 auto;
   text-align: center;
   width: 100%;
   max-width: 500px;

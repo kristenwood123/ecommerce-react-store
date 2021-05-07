@@ -64,14 +64,24 @@ const CartItemArticle = styled.article`
   }
 
   .arrow {
-    color: var( --clr-main-blue);
+    color: white;
     background-color: transparent;
   }
 
   button {
     border: none;
-    background-color: none;
+    background-color: #101010;
   }
+
+  .remove-btn {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: none;
+  font-size: 14px;
+}
 
   button:hover {
     transform: scale(1.3);
@@ -85,18 +95,6 @@ const CartItemArticle = styled.article`
     font-size: 15px;
     color: #9fa6ab;
   }
-
-  .remove-btn {
-  background-color: var(--clr-main-blue);
-  color: white;
-  font-size: 14px;
-  border: none;
-  width: 80px;
-  padding: 3px;
-  margin-top: 10px;
-  border-radius: 6px;
-  }
 `
-
 
 export default CartItem

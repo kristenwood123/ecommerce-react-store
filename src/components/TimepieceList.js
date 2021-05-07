@@ -7,9 +7,8 @@ import { useGlobalContext } from '../context'
 
 const TimepieceList  = () => { 
   const { products } = useGlobalContext()
-
     return (
-        <>
+        <section className='TimepieceList' style={{margin: '0 auto'}}>
           <h1 className='timepieceList__heading'>Timepieces</h1>
           <p style={{marginLeft: '200px'}}>Shows 1 - 6 of 6 products</p>
            <div className='timepieceList'>
@@ -24,7 +23,7 @@ const TimepieceList  = () => {
             })}
             </Grid>
         </div>
-      </>
+      </section>
     )
   }
 
@@ -37,6 +36,7 @@ const TimepieceList  = () => {
     padding-bottom: 100px;
     max-width: 790px;
     grid-gap: 20px;
+    margin: 0 auto;
   `
 
 export default TimepieceList

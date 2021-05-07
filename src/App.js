@@ -8,6 +8,7 @@ import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
+import Checkout from './components/Checkout'
 import { useGlobalContext } from './context';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart}/>
+          <Route path='/checkout' component={Checkout}/>
         </Switch>       
       <Footer />
     </div>

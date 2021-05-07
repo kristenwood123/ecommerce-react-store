@@ -4,7 +4,7 @@ import '../styles/index.css'
 const Footer = () => {
   return (
     <section className='footer' style={{backgroundColor: '#000', color: 'white'}}>
-      <div className="footer-wrapper">
+      <div className="footer-wrapper" style={{margin: '10px'}}>
       <p className='footer__text'>Early release notification on limited products...</p>
         <div className='footer__email'>
           <input className='footer__input' type="text" placeholder='Email Address'/>

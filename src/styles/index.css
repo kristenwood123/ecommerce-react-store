@@ -8,7 +8,7 @@
 
 * {
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
   font-family: var(--font-main);
 }
@@ -103,6 +103,21 @@ body {
 
   .home__text {
     margin: 10px;
+  }
+
+  .footer {
+    padding-top: 0;
+    margin-top: 120px;
+  }
+
+  .footer__list {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .footer__text {
+    font-size: 13px;
+    margin-top: 10px;
   }
 }
 

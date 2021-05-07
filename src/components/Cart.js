@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles/index.css'
 import CartItem from './CartItem'
+import Checkout from './Checkout'
 import styled from 'styled-components'
 import { useGlobalContext } from '.././context'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 const Cart = () => {
   const { total, clearCart, cart } = useGlobalContext();
@@ -11,7 +12,7 @@ const Cart = () => {
     return (
       <CartSect>
         <header style={{color: 'white'}}>
-          <h2>Your Cart</h2>
+          <h3>Your Cart</h3>
           <h4 className='empty-cart'>is currently empty</h4>
           <div>
             <Link to='/timepieces'>
@@ -23,31 +24,25 @@ const Cart = () => {
   }
     return (
        <CartSect>
-      {/* cart header */}
       <header>
-        <h2>Your Cart</h2>
+        <h3>Your cart</h3>
+        <hr/>
       </header>
-      {/* cart items */}
       <CartContainer>
         {cart.map((item) => {
           return <CartItem key={item.id} {...item} />
         })}
-      </CartContainer>
-      {/* cart footer */}
-      <footer>
-        <hr />
+
+  <hr />
         <div className='cart-total'>
-          <h4>
-            total <span>${total}</span>
-          </h4>
+          <div><p><em>Taxes and shipping calculated at checkout</em></p></div>
+          <div> <h4> total: <span>${total}</span></h4></div>
+         <Route render ={({history}) => (
+           <button className='checkout' onClick={() => history.push('./checkout')}>
+             Checkout</button>
+             )}/>
         </div>
-        <button
-          className='btn clear-btn'
-          onClick={() => clearCart(cart)}
-        >
-          clear cart
-        </button>
-      </footer>
+      </CartContainer>
    </CartSect>
         )
     };
@@ -57,11 +52,65 @@ const CartSect = styled.section`
   margin: 0 auto;
   margin-top: 40px;
   padding: 2.5rem 0;
-  background-color: white;
+  background-color: black;
+  color: white;
 
   header {
     text-align: center;
   }
+
+  hr {
+    border: 1px solid white;
+    opacity: 1;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  em {
+    font-size: 14px;
+  }
+
+  .cart-total {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    align-items: flex-end;
+    float: right;
+    width: 80%;
+  }
+
+  .btn {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: none;
+  font-size: 14px;
+}
+
+.checkout {
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border: none;
+    width: 100px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.checkout:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
 
   footer {
     display: flex;

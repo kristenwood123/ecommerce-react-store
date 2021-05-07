@@ -36,7 +36,6 @@ export default function Timepiece ({product}){
 
 
 const Card = styled.div`
-  border-radius: 6px;
   background-color: white;
   padding: 15px;
   justify-content: center;
@@ -51,20 +50,21 @@ const Card = styled.div`
   }
 
   .cart-btn {
-    background-color: var(--clr-main-blue);
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 14px;
     border: none;
     width: 100px;
     margin-top: 10px;
     padding: 5px;
+    border: 1px solid black;
     text-align: center;
   }
 
   .cart-btn:hover {
     border: 1px solid black;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
   }
 
   p { 
