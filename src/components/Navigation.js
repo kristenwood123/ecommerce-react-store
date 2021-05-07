@@ -25,15 +25,15 @@ const Navigation = () =>  {
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                 <Navbar.Brand><img src="https://cdn.shopify.com/s/files/1/2293/1277/files/Sangin_Instruments_Logo_Black_f8c6bcd2-aca5-405e-8517-e132e2156e76_180x.png?v=1546999822" alt="sangin logo" href='#home'/></Navbar.Brand>
-                    <Nav.Link href='/' variant='dark' >Home</Nav.Link>
-                    <Link to='/timepieces' className='links'>Shop</Link>                     
-                    <Link to='/checkout' className='links'>Checkout</Link>                     
-                    <Link to='/checkout' className='links'> 
-                        <span onClick={handleAuthentication}>
-                          {user ?
+                    <Link href='/' variant='dark' >Home</Link>
+                    <Link to='/timepieces' className='links'>Shop</Link>                                         
+                    <Link to={!user && '/checkout'} className='links'>
+                        <div onClick={handleAuthentication}>
+                          <span>{user ?
                            'SignOut' : 
                            'SignIn'
                            }</span>
+                        </div>
                       </Link>      
                     <Link to='/cart' className='links'> <FaShoppingCart 
                     className='Navbar__bag'
