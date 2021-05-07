@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link, useHistory, Route } from 'react-router-dom'
+import { useHistory, Route } from 'react-router-dom'
 import { auth } from '../firebase'
 
 export const Checkout = () => {
@@ -144,12 +144,20 @@ const CheckoutSection = styled.section`
       padding-bottom: 5px;
       border: 1px solid white;
     }
+
+  .btn-black:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
   }
 
  @media screen and (min-width: 320px) {
     flex-direction: column;
     padding-bottom: 150px;
     padding-top: 80px;
+  }
+
+  .login-container {
+    align-self: center;
   }
 
   input[type] {
@@ -161,10 +169,10 @@ const CheckoutSection = styled.section`
   flex-direction: row;
   justify-content: center;
   justify-content: space-around;
-  padding-top: 200px;
+  padding-top: 120px;
 }
 
-.login-container {
-  align-self: flex-start;
+.new-account-container {
+  padding-top: 78px;
 }
 `

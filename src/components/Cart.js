@@ -6,11 +6,12 @@ import { useGlobalContext } from '.././context'
 import { Link, Route } from 'react-router-dom'
 
 const Cart = () => {
-  const { total, clearCart, cart } = useGlobalContext();
+  const { total, cart, user } = useGlobalContext();
    if (cart.length === 0) {
     return (
       <CartSect>
-        <header style={{color: 'white'}}>
+        <header style={{color: 'white'}}> 
+          {user && <h4 style={{paddingTop: '2rem'}}>{user.email}</h4>}
           <h3>Your Cart</h3>
           <h4 className='empty-cart'>is currently empty</h4>
           <div>
@@ -53,6 +54,7 @@ const CartSect = styled.section`
   padding: 2.5rem 0;
   background-color: black;
   color: white;
+  padding-bottom: 200px;
 
   header {
     text-align: center;

@@ -19,10 +19,15 @@ body {
 }
 
 .links {
-  margin-top: 8px;
+  margin-top: 14px;
   text-decoration: none;
+  color: black;
+  margin-right: 12px;
+}
+
+.links:hover {
   color: #989a9c;
-  margin-right: 8px;
+  text-decoration: none;
 }
 
 /* Cart --------------------------------------------- */

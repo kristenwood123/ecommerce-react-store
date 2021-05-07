@@ -47,6 +47,7 @@ const Card = styled.div`
   .text-container {
     display: flex;
     margin-top: 10px;
+    justify-content: space-around;
   }
 
   .cart-btn {

@@ -17,7 +17,7 @@ const App = () => {
 
 useEffect(() => {
   auth.onAuthStateChanged(authUser => {
-    console.log('The user is ', authUser);
+
 
     if(authUser) {
       // the user just logged in / the user was logged in
@@ -48,7 +48,7 @@ useEffect(() => {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/timepieces' component={TimepieceList}/>
-          <Route path='/cart' component={Cart}/>
+          <Route path='/cart' component={Cart} />
           <Route path='/checkout' component={Checkout}/>
         </Switch>       
       <Footer />
