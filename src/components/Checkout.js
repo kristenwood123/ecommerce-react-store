@@ -13,7 +13,14 @@ export const Checkout = () => {
 
   const signIn = e => {
     e.preventDefault()
-    //some fancy firebase login shiittt.......
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .auth(auth => {
+        history.push('/')
+      })
+      .catch(error => alert(error.message))
+
   }
 
   const createAccount = e => {
@@ -27,7 +34,7 @@ export const Checkout = () => {
         }
       })
       .catch(error => alert(error.message))
-    //do some fancy firebase register 
+  
   }
   return (
     <CheckoutSection>
