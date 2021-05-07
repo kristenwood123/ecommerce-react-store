@@ -13,12 +13,10 @@ const Navigation = () =>  {
         <Container>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' variant='dark'/>
             <Navbar.Collapse id='responsive-navbar-nav'>
-              <Nav>
-                <Navbar.Brand><img src="https://cdn.shopify.com/s/files/1/2293/1277/files/Sangin_Instruments_Logo_Black_f8c6bcd2-aca5-405e-8517-e132e2156e76_180x.png?v=1546999822" alt="sangin logo" href='#home'/> </Navbar.Brand>
+              <Nav style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+                <Navbar.Brand><img src="https://cdn.shopify.com/s/files/1/2293/1277/files/Sangin_Instruments_Logo_Black_f8c6bcd2-aca5-405e-8517-e132e2156e76_180x.png?v=1546999822" alt="sangin logo" href='#home'/></Navbar.Brand>
                     <Nav.Link href='/' variant='dark' >HOME</Nav.Link>
-                    <Link to='/timepieces' className='links'>SHOP</Link>
-                    <Nav.Link href='/'>ABOUT</Nav.Link>
-                    <Nav.Link href='/timepieces'>STORY</Nav.Link>      
+                    <Link to='/timepieces' className='links'>SHOP</Link>                     
                     <Nav.Link href='/checkout'>SIGN IN</Nav.Link>      
                     <Link to='/cart' className='links'> <FaShoppingCart 
                     className='Navbar__bag'

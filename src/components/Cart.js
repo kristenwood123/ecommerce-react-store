@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/index.css'
 import CartItem from './CartItem'
-import Checkout from './Checkout'
 import styled from 'styled-components'
 import { useGlobalContext } from '.././context'
 import { Link, Route } from 'react-router-dom'

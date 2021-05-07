@@ -1,12 +1,34 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Link, useHistory, Route } from 'react-router-dom'
+import { auth } from '../firebase'
 
 export const Checkout = () => {
+  const history  = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const [email2, setEmail2] = useState('')
+  const [password2, setPassword2] = useState('')
 
+  const signIn = e => {
+    e.preventDefault()
+    //some fancy firebase login shiittt.......
+  }
 
+  const createAccount = e => {
+    e.preventDefault()
+    auth
+      .createUserWithEmailAndPassword(email2, password2)
+      .then((auth) => {
+        console.log(auth);
+        if (auth) {
+          history.push('/')
+        }
+      })
+      .catch(error => alert(error.message))
+    //do some fancy firebase register 
+  }
   return (
     <CheckoutSection>
       <div className="login-container">
@@ -22,17 +44,36 @@ export const Checkout = () => {
             value={password}
             onChange={e => setPassword(e.target.value)} />
           <br></br>
-          <button type='submit' className='btn-white'>SIGN IN</button>
+          <button type='submit' 
+            className='btn-white'
+            onClick={signIn}>SIGN IN</button>
         </form>
       </div>
 
       <div className="new-account-container">
         <h4>New around here?</h4>
         <p>Create an account so you can check out faster, track orders, store multiple addresses and more.</p>
+
+         <form action="submit">
+          <input type="text" 
+            placeholder='Email' 
+            value={email2}
+            onChange={e => setEmail2(e.target.value)} />
+          <input type="password" 
+            placeholder='Password' 
+            value={password2}
+            onChange={e => setPassword2(e.target.value)} />
+          <br></br>
+        </form>
         <div className="btn-container">
-          <button className='btn-black'>CREATE ACCOUNT</button>
+          <button className='btn-black'
+          onClick={createAccount}>
+              CREATE ACCOUNT
+            </button>
             <p>OR</p>
-          <button className='btn-black'>RETURN TO STORE</button>
+            <Route render = {({history}) => (
+               <button className='btn-black' onClick={() => history.push('./timepieces')}>RETURN TO STORE</button>
+            )} />
         </div>
       </div>          
    </CheckoutSection>
@@ -115,4 +156,7 @@ const CheckoutSection = styled.section`
   padding-top: 200px;
 }
 
+.login-container {
+  align-self: flex-start;
+}
 `
