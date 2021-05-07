@@ -19,7 +19,7 @@ const Navigation = () =>  {
                     <Nav.Link href='/'>ABOUT</Nav.Link>
                     <Nav.Link href='/timepieces'>STORY</Nav.Link>      
                     <Nav.Link href='/timepieces'>CONNECT</Nav.Link>      
-                    <Link to='/cart' className='links dark'> <FaShoppingCart 
+                    <Link to='/cart' className='links'> <FaShoppingCart 
                     className='Navbar__bag'
                     /> {amount}</Link>
               </Nav>  

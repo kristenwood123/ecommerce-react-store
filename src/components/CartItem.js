@@ -59,6 +59,10 @@ const CartItemArticle = styled.article`
     margin: 0;
   }
 
+  .amount {
+    margin-bottom: 0;
+  }
+
   .arrow {
     color: var( --clr-main-blue);
     background-color: transparent;

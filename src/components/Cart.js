@@ -57,6 +57,7 @@ const CartSect = styled.section`
   margin: 0 auto;
   margin-top: 40px;
   padding: 2.5rem 0;
+  background-color: white;
 
   header {
     text-align: center;
@@ -81,6 +82,11 @@ const CartSect = styled.section`
     width: 200px;
     padding: 3px;
     margin-top: 10px;
+  }
+
+  .clear-btn:hover {
+    background: black;
+    color: white;
   }
 `
 const CartContainer = styled.div`
