@@ -14,7 +14,7 @@ const Payment = () => {
       <div className="payment-container">
 
       {/* Delivery address */}
-      <div className="payment__information">
+      <div className="payment__information" style={{width: '50%'}}>
         <section className="payment__section">
           <h3>Shipping address</h3>
             <div className="text-container">
@@ -26,7 +26,7 @@ const Payment = () => {
         </section>
         </div>
 
-          <div className='payment__items'>
+          <div className='payment__items' style={{width: '50%'}}>
           {/* Reviews Items */}
           <section className="payment__section">
               {cart.map((item) => {
@@ -38,10 +38,15 @@ const Payment = () => {
           {/* Payment method */}
           <section className="payment__section">
             <div className='cart-total'>
-              <p>Subtotal: ${total}</p>
-              <p>Shipping: <span>Calculated at next step</span></p>
-              <p>Taxes(estimated) ${taxes.toFixed(2)}</p>
-              <p>Total: ${newTotal.toFixed(2)}</p>
+              <p>Subtotal:</p>
+              <p>${total}</p>
+              <p>Shipping:</p>
+              <span>Calculated at next step</span>
+              <p>Taxes <span> (estimated)</span></p>
+              <p>${taxes.toFixed(2)}</p>
+            
+              <p className='total'>Total: </p> 
+              <p className='total'><span>USD </span> ${newTotal.toFixed(2)}</p>
             </div>
           </section>
         </div>
@@ -64,7 +69,25 @@ h1 {
 .payment-container {
   display: flex;
   margin: 50px;
-  justify-content: space-around;
+}
+
+.cart-total {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+  font-size: 15px;
+  text-align: left;
+}
+
+span {
+  color: gray;
+  font-size: 14px;
+  text-transform: italics;
+}
+
+.total {
+  text-align: center;
+  border-top: 1px solid #505050;
+  padding-top: 10px;
 }
 `
 
