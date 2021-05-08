@@ -50,7 +50,6 @@ const CheckoutSection = styled.section`
   .text-container2 {
     display: flex;
     flex-direction: column;
-
   }
 
 `

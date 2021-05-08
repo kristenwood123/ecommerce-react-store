@@ -4,39 +4,39 @@ import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
 
 const Payment = () => {
-  const { user, state, cart, total } = useGlobalContext()
+  const { user, cart, total, amount } = useGlobalContext()
   const taxes = total * .08;
   let newTotal = taxes + total; 
   return (
     <PaymentSection>
-      <h1>Payment</h1>
+      <p>Checkout ({amount} items)</p>
       <hr/>
       <div className="payment-container">
 
       {/* Delivery address */}
-      <div className="payment__information" style={{width: '50%'}}>
+      <div className="payment__information">
         <section className="payment__section">
-          <h3>Shipping address</h3>
-            <div className="text-container">
+          <div>
+            <p>Shipping address:</p>
+          </div>
+            <div className="text-container1">
               <p>{user?.email}</p>
               <p>123 React Lane</p>
-              <p>Los angeles CA</p>
+              <p>Los angeles, CA 90820</p>
             </div>
-
         </section>
         </div>
 
-          <div className='payment__items' style={{width: '50%'}}>
+          <div className='payment__items'>
           {/* Reviews Items */}
-          <section className="payment__section">
+          <section className="payment__section1">
+              <h6>Items in Cart</h6>
               {cart.map((item) => {
           return <CheckoutProduct key={item.id} {...item} />
                 })}
           </section>
-
                 <hr/>
-          {/* Payment method */}
-          <section className="payment__section">
+          <section className="payment__section1">
             <div className='cart-total'>
               <p>Subtotal:</p>
               <p>${total}</p>
@@ -65,10 +65,31 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
- 
+
 .payment-container {
   display: flex;
-  margin: 50px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 50px 50px 50px;
+}
+
+.payment__section {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.text-container1  {
+  text-align: right;
+  margin-left: 50px;
+  font-size: 14px;
+}
+
+.payment__information {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #555;
+  width: 100%;
 }
 
 .cart-total {
@@ -88,6 +109,11 @@ span {
   text-align: center;
   border-top: 1px solid #505050;
   padding-top: 10px;
+  font-size: 20px;
+}
+
+h6 {
+  margin-bottom: 20px;
 }
 `
 
