@@ -4,8 +4,9 @@ import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
 
 const Payment = () => {
-  const { user, state, cart } = useGlobalContext()
-  console.log(cart);
+  const { user, state, cart, total } = useGlobalContext()
+  const taxes = total * .08;
+  let newTotal = taxes + total; 
   return (
     <PaymentSection>
       <h1>Payment</h1>
@@ -20,7 +21,6 @@ const Payment = () => {
               <p>{user?.email}</p>
               <p>123 React Lane</p>
               <p>Los angeles CA</p>
-
             </div>
 
         </section>
@@ -34,10 +34,15 @@ const Payment = () => {
                 })}
           </section>
 
-
+                <hr/>
           {/* Payment method */}
           <section className="payment__section">
-
+            <div className='cart-total'>
+              <p>Subtotal: ${total}</p>
+              <p>Shipping: <span>Calculated at next step</span></p>
+              <p>Taxes(estimated) ${taxes.toFixed(2)}</p>
+              <p>Total: ${newTotal.toFixed(2)}</p>
+            </div>
           </section>
         </div>
       </div>
@@ -48,6 +53,8 @@ const Payment = () => {
 const PaymentSection = styled.div`
 color: white;
 padding-top: 100px;
+text-align: center;
+padding-bottom: 200px;
 
 h1 {
   text-align: center;
@@ -56,6 +63,7 @@ h1 {
  
 .payment-container {
   display: flex;
+  margin: 50px;
   justify-content: space-around;
 }
 `

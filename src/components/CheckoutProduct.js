@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const CheckoutProduct = ({title, img, price, amount}) => {
- 
+
   return (
    <CheckoutSection>
       <div className="text-container">
