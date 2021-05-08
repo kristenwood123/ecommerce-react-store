@@ -33,7 +33,7 @@ const Navigation = () =>  {
                            'SignOut' : 
                            'Sign In'
                            }</span>
-                        </div>
+                          </div>
                       </Link>      
                     <Link to='/cart' className='links'> <FaShoppingCart className='Navbar__bag'/> {amount}</Link>
               </Nav>  

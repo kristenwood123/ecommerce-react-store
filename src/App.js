@@ -9,6 +9,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
 import Checkout from './components/Checkout'
+import Payment from './components/Payment'
 import { useGlobalContext } from './context';
 import { auth } from './firebase'
 
@@ -49,6 +50,7 @@ useEffect(() => {
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart} />
           <Route path='/checkout' component={Checkout}/>
+          <Route path='/payment' component={Payment}/>
         </Switch>       
       <Footer />
     </div>
