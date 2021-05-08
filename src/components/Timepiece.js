@@ -44,6 +44,10 @@ useEffect(() => {
 
 
 const Card = styled.div`
+  :hover {
+    box-shadow: 0px 0px 10px #fff;
+  }
+
   background-color: white;
   padding: 15px;
   justify-content: center;
@@ -80,6 +84,8 @@ const Card = styled.div`
     margin-bottom: 0;
   }
 `
+
+
 
 const Info = styled.p`
   width: 100%;

@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import '../styles/index.css'
 import CartItem from './CartItem'
 import styled from 'styled-components'
 import { useGlobalContext } from '.././context'
 import { Link, Route } from 'react-router-dom'
+import FlipMove from 'react-flip-move'
 
+
+const FunctionalArticle = forwardRef((props, ref) => (
+  <div ref={ref}>
+    {props.articleName}
+  </div>
+));
 
 const Cart = () => {
   const { total, cart, user } = useGlobalContext();
@@ -32,9 +39,11 @@ const Cart = () => {
         <hr/>
       </header>
       <CartContainer>
+
         {cart.map((item) => {
           return <CartItem key={item.id} {...item} />
         })}
+  
       <hr />
         <div className='cart-total'>
           <div><p><em>Taxes and shipping calculated at checkout</em></p></div>

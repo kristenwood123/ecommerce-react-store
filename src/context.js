@@ -18,7 +18,7 @@ const initialState = {
 const AppProvider = ({children}) => {
 const [state, dispatch] = useReducer(reducer, initialState)
 
-const clearCart = (cart) => {
+const clearCart = () => {
   dispatch({type: 'CLEAR_CART'})
 }
 
@@ -51,8 +51,6 @@ const increase = (id) => {
 const decrease = (id) => {
   dispatch({type: 'DECREASE', payload: id})
 }
-
-
 
 useEffect(() => {
   dispatch({type: 'GET_TOTAL'})

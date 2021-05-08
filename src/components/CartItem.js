@@ -56,6 +56,12 @@ const CartItemArticle = styled.article`
     margin: 0;
   }
 
+  :hover {
+    transition: 0.5s;
+    box-shadow: 0px 0px 6px #fff;
+    cursor: pointer;
+  }
+
   .itemDesc {
     margin: 0;
     width: 150px;
