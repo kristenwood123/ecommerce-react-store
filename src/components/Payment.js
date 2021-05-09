@@ -24,13 +24,12 @@ const Payment = () => {
               <p>123 React Lane</p>
               <p>Los angeles, CA 90820</p>
             </div>
-        </section>
+          </section>
         </div>
 
           <div className='payment__items'>
-          {/* Reviews Items */}
           <section className="payment__section1">
-              <h6>Items in Cart</h6>
+              <h6>Review Items</h6>
               {cart.map((item) => {
           return <CheckoutProduct key={item.id} {...item} />
                 })}
@@ -76,7 +75,11 @@ h1 {
 .payment__section {
   display: flex;
   justify-content: center;
-  
+}
+.payment__items {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .text-container1  {
