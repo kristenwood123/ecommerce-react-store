@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
-import PaymentForm from './PaymentForm'
 import StripeContainer from './StripeContainer'
 
 
@@ -25,8 +24,8 @@ const Payment = () => {
           </div>
             <div className="text-container1">
               <p>{user?.email}</p>
-              <p>123 React Lane</p>
-              <p>Los angeles, CA 90820</p>
+              <p>1435 20th Street</p>
+              <p>San Diego, CA 90820</p>
             </div>
           </section>
         </div>

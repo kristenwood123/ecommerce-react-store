@@ -1,42 +1,83 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { useGlobalContext } from '.././context'
 import axios from 'axios'
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
     base: {
-      iconColor: '#c4f0ff',
+      iconColor: 'white',
       color: '#fff',
       fontWeight: 500,
       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
       fontSmoothing: 'antialiased',
-      ':-webkit-uatofill': { color: '#fce88s'},
-      '::placeholder': { color: '#87bbfd'}
+      ':-webkit-uatofill': { color: 'white'},
+      '::placeholder': { color: 'white'}
     },
     invalid: {
-      iconColor: '#ffc7ee',
-      color: '#ffc7ee'
+      iconColor: 'red',
+      color: 'red'
     }
   }
 }
 
 const PaymentForm = () => {
-  const [success, setSuccess] = useState(false)
+  const [succeeded, setSucceeded] = useState(false)
+  const [processing, setProcessing] = useState('')
+  const [error, setError] = useState(null)
+  const [disabled, setDisabled] = useState(true)
+  const [clientSecret, setClientSecret] = useState('')
+
   const stripe = useStripe()
   const elements = useElements()
+  
+  const { cart, total } = useGlobalContext()
 
+  useEffect(() => {
+      //generate stripe secret
+      const getClientSecret = async () => {
+        const response = await axios({
+          method: 'post',
+          url: `/payments/create?total=${total * 100}`
+        })
+      }
+
+      getClientSecret()
+  }, [cart])
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setProcessing(true);
+
+    // const payload = await stripe 
+
+  }
+
+  const handleChange = e => {
+    setDisabled(e.empty)
+    setError(e.error ? e.error.message : '')
+  }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <fieldset className='FormGroup'>
           <div className="FormRow">
-            <CardElement options={CARD_OPTIONS}/>
+            <CardElement options={CARD_OPTIONS} onChange={handleChange} />
           </div>
         </fieldset>
-        <button>Pay</button>
+        <button type='submit' 
+          className='payment' 
+          disabled={processing || disabled || succeeded}>
+            <span>
+            {processing ? <p>Processing</p> : 'Buy Now'}
+          </span>
+          </button>  
+           {/*Errors */}
+           {error && <div>{error}</div>}
       </form>
      : 
      <div>

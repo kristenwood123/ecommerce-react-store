@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { BsArrowRight } from 'react-icons/bs'
 import { useHistory, Route } from 'react-router-dom'
 import { auth } from '../firebase'
 
