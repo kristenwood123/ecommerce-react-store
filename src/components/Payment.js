@@ -1,7 +1,11 @@
+
 import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
+import PaymentForm from './PaymentForm'
+import StripeContainer from './StripeContainer'
+
 
 const Payment = () => {
   const { user, cart, total, amount } = useGlobalContext()
@@ -50,6 +54,7 @@ const Payment = () => {
           </section>
         </div>
       </div>
+      <StripeContainer/>
     </PaymentSection>
   )
 }
@@ -59,19 +64,16 @@ color: white;
 padding-top: 100px;
 text-align: center;
 padding-bottom: 200px;
-
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .payment-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 0 50px 50px 50px;
 }
-
 .payment__section {
   display: flex;
   justify-content: center;
@@ -81,40 +83,34 @@ h1 {
   flex-direction: column;
   margin: 0 auto;
 }
-
 .text-container1  {
   text-align: right;
   margin-left: 50px;
   font-size: 14px;
 }
-
 .payment__information {
   display: flex;
   margin-bottom: 20px;
   border-bottom: 1px solid #555;
   width: 100%;
 }
-
 .cart-total {
  display: grid;
  grid-template-columns: 1fr 1fr;
   font-size: 15px;
   text-align: left;
 }
-
 span {
   color: gray;
   font-size: 14px;
   text-transform: italics;
 }
-
 .total {
   text-align: center;
   border-top: 1px solid #505050;
   padding-top: 10px;
   font-size: 20px;
 }
-
 h6 {
   margin-bottom: 20px;
 }

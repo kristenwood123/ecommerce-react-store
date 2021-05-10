@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { BsArrowRight } from 'react-icons/bs'
 import { useHistory, Route } from 'react-router-dom'
 import { auth } from '../firebase'
 
@@ -79,7 +80,7 @@ export const Checkout = () => {
             </button>
             <p>OR</p>
             <Route render = {({history}) => (
-               <button className='btn-black' onClick={() => history.push('./timepieces')}>RETURN TO STORE</button>
+               <button className='btn-black' onClick={() => history.push('/')}>RETURN TO STORE</button>
             )} />
         </div>
       </div>          

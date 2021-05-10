@@ -8,10 +8,11 @@ import TimepieceList from './components/TimepieceList'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
-import Checkout from './components/Checkout'
 import Payment from './components/Payment'
+import Checkout from './components/Checkout'
 import { useGlobalContext } from './context';
 import { auth } from './firebase'
+
 
 const App = () => {
   const { loading, dispatch } = useGlobalContext()
