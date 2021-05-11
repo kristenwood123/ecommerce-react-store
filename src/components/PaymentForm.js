@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useGlobalContext } from '.././context'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const CARD_OPTIONS = {
@@ -32,6 +33,7 @@ const PaymentForm = () => {
 
   const stripe = useStripe()
   const elements = useElements()
+  const history = useHistory()
   
   const { cart, total } = useGlobalContext()
 
@@ -42,8 +44,8 @@ const PaymentForm = () => {
           method: 'post',
           url: `/payments/create?total=${total * 100}`
         })
+        setClientSecret(response.data.clientSecret)
       }
-
       getClientSecret()
   }, [cart])
 
@@ -51,9 +53,17 @@ const PaymentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    }).then(({ paymentIntent }) => {
+      setSucceeded(true);
+      setError(null);
+      setProcessing(false);
 
-    // const payload = await stripe 
-
+      history.replace('/orders')
+    })
   }
 
   const handleChange = e => {
