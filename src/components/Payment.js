@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
+import { CountryDropdown } from 'react-country-region-selector';
 import StripeContainer from './StripeContainer'
 
 
@@ -10,13 +11,19 @@ const Payment = () => {
   const { user, cart, total, amount } = useGlobalContext()
   const taxes = total * .08;
   let newTotal = taxes + total; 
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    console.log('helllo');
+  }
+
+
   return (
     <PaymentSection>
       <p>Checkout ({amount} items)</p>
       <hr/>
       <div className="payment-container">
-
-      {/* Delivery address */}
+{/* 
       <div className="payment__information">
         <section className="payment__section">
           <div>
@@ -28,9 +35,161 @@ const Payment = () => {
               <p>San Diego, CA 90820</p>
             </div>
           </section>
+        </div> */}
+
+    <div className="payment__details">
+      <form onSubmit={handleFormSubmit}>
+          <div className="group">
+            <h6>Shipping Address</h6>
+              </div>
+              <input
+            required
+            placeholder="Recipient Name"
+            name="recipientName"
+            // handleChange={e => setRecipientName(e.target.value)}
+            // value={recipientName}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="Line 1"
+            name="line1"
+            // handleChange={evt => handleShipping(evt)}
+            // value={shippingAddress.line1}
+            type="text"
+          />
+
+          <input
+            placeholder="Line 2"
+            name="line2"
+            // handleChange={evt => handleShipping(evt)}
+            // value={shippingAddress.line2}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="City"
+            name="city"
+            // handleChange={e => handleShipping(e)}
+            // value={shippingAddress.city}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="State"
+            name="state"
+            // handleChange={e => handleShipping(e)}
+            // value='{shippingAddress.state}'
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="Postal Code"
+            name="postal_code"
+            // handleChange={e => handleShipping(e)}
+            // value='{shippingAddress.postal_code}'
+            type="text"
+          />
+        <div className="formRow checkoutInput">
+           <CountryDropdown
+              required
+              // onChange={val => handleShipping({
+              //   target: {
+              //     name: 'country',
+              //     value: val
+              //   }
+              // })}
+              // value={shippingAddress.country}
+              valueType="short"
+            />
+          </div>
+          
+        <div className="group">
+          <h6 style={{marginTop: '10px'}}>
+            Billing Address
+          </h6>
+         <input
+            required
+            placeholder="Name on Card"
+            name="nameOnCard"
+            // handleChange={e => setNameOnCard.target.value)}
+            // value={nameOnCard}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="Line 1"
+            name="line1"
+            // handleChange={e => handleBilling(e)}
+            // value={billingAddress.line1}
+            type="text"
+          />
+
+          <input
+            placeholder="Line 2"
+            name="line2"
+            // handleChange={e => handleBilling(e)}
+            // value={billingAddress.line2}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="City"
+            name="city"
+            // handleChange={e => handleBilling(e)}
+            // value={billingAddress.city}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="State"
+            name="state"
+            // handleChange={e => handleBilling(e)}
+            // value={billingAddress.state}
+            type="text"
+          />
+
+          <input
+            required
+            placeholder="Postal Code"
+            name="postal_code"
+            // handleChange={e => handleBilling(e)}
+            // value={billingAddress.postal_code}
+            // type="text"
+          />
+
+          <div className="formRow checkoutInput">
+            <CountryDropdown
+              required
+              // onChange={val => handleBilling({
+              //   target: {
+              //     name: 'country',
+              //     value: val
+              //   }
+              // })}
+              // value={billingAddress.country}
+              valueType="short"
+            />
+          </div>
+
         </div>
 
-          <div className='payment__items'>
+
+
+        </form>
+        </div> 
+
+
+
+
+      <div className='payment__items'>
           <section className="payment__section1">
               <h6>Review Items</h6>
               {cart.map((item) => {
@@ -51,9 +210,9 @@ const Payment = () => {
               <p className='total'><span>USD </span> ${newTotal.toFixed(2)}</p>
             </div>
           </section>
-        </div>
+        </div>  
       </div>
-      <StripeContainer/>
+      <StripeContainer />
     </PaymentSection>
   )
 }
@@ -67,26 +226,30 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .payment-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
   margin: 0 50px 50px 50px;
 }
+
 .payment__section {
   display: flex;
   justify-content: center;
 }
+
 .payment__items {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
+
 .text-container1  {
   text-align: right;
   margin-left: 50px;
   font-size: 14px;
 }
+
 .payment__information {
   display: flex;
   margin-bottom: 20px;
@@ -112,6 +275,24 @@ span {
 }
 h6 {
   margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+input,
+select {
+  background-color: black;
+  color: white;
+  border: 1px solid #505050;
+  margin: 5px;
+  padding: 2px;
 }
 `
 

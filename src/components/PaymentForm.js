@@ -61,8 +61,8 @@ export default function PaymentForm() {
 
     return (
         <>
-        {!success ? 
-        <form onSubmit={handleSubmit}>
+        {/* {!success ? 
+        <form className='stripe-form'onSubmit={handleSubmit}>
             <fieldset className="FormGroup">
                 <div className="FormRow">
                     <CardElement options={CARD_OPTIONS}/>
@@ -75,7 +75,7 @@ export default function PaymentForm() {
            <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>
        </div> 
         }
-            
+             */}
         </>
     )
 }

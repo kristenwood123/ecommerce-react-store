@@ -39,6 +39,7 @@ const HomeSection= styled.section`
   align-items: center;
   padding-top: 20px;
   background-color: #000;
+  padding-bottom: 180px;
 
   .home__logo-wrapper {
   display: flex;
