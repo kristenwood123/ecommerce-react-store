@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
@@ -7,14 +7,44 @@ import { CountryDropdown } from 'react-country-region-selector';
 import StripeContainer from './StripeContainer'
 
 
+const initialAddressState = {
+  line1: '',
+  line2: '',
+  city: '',
+  state: '',
+  postal_code: '',
+  country: '',
+}
+
 const Payment = () => {
-  const { user, cart, total, amount } = useGlobalContext()
+  const { cart, total, amount } = useGlobalContext()
+
+  const [billingAddress, setBillingAddress] = useState({...initialAddressState})
+  const [shippingAddress, setShippingAddress] = useState({...initialAddressState})
+  const [recipientName, setRecipientName] = useState("")
+  const [nameOnCard, setNameOnCard] = useState("")
   const taxes = total * .08;
   let newTotal = taxes + total; 
 
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    console.log('helllo');
+  // const handleFormSubmit = e => {
+  //   e.preventDefault();
+  //   console.log('helllo');
+  // }
+
+   const handleShipping = e => {
+    const { name, value } = e.target;
+    setShippingAddress({
+      ...initialAddressState,
+      [name]: value
+    })
+  }
+
+  const handleBilling = e => {
+    const { name, value } = e.target;
+    setBillingAddress({
+      ...initialAddressState,
+      [name]: value
+    })
   }
 
 
@@ -38,7 +68,7 @@ const Payment = () => {
         </div> */}
 
     <div className="payment__details">
-      <form onSubmit={handleFormSubmit}>
+      <form >
           <div className="group">
             <h6>Shipping Address</h6>
               </div>
@@ -46,8 +76,8 @@ const Payment = () => {
             required
             placeholder="Recipient Name"
             name="recipientName"
-            // handleChange={e => setRecipientName(e.target.value)}
-            // value={recipientName}
+            onChange={e => setRecipientName(e.target.value)}
+            value={recipientName}
             type="text"
           />
 
@@ -55,16 +85,16 @@ const Payment = () => {
             required
             placeholder="Line 1"
             name="line1"
-            // handleChange={evt => handleShipping(evt)}
-            // value={shippingAddress.line1}
+            onChange={e => handleShipping(e)}
+            value={shippingAddress.line1}
             type="text"
           />
 
           <input
             placeholder="Line 2"
             name="line2"
-            // handleChange={evt => handleShipping(evt)}
-            // value={shippingAddress.line2}
+            onChange={e => handleShipping(e)}
+            value={shippingAddress.line2}
             type="text"
           />
 
@@ -72,8 +102,8 @@ const Payment = () => {
             required
             placeholder="City"
             name="city"
-            // handleChange={e => handleShipping(e)}
-            // value={shippingAddress.city}
+            onChange={e => handleShipping(e)}
+            value={shippingAddress.city}
             type="text"
           />
 
@@ -81,8 +111,8 @@ const Payment = () => {
             required
             placeholder="State"
             name="state"
-            // handleChange={e => handleShipping(e)}
-            // value='{shippingAddress.state}'
+            onChange={e => handleShipping(e)}
+            value={shippingAddress.state}
             type="text"
           />
 
@@ -90,20 +120,20 @@ const Payment = () => {
             required
             placeholder="Postal Code"
             name="postal_code"
-            // handleChange={e => handleShipping(e)}
-            // value='{shippingAddress.postal_code}'
+            onChange={e => handleShipping(e)}
+            value={shippingAddress.postal_code}
             type="text"
           />
-        <div className="formRow checkoutInput">
+        <div className='formRow'>
            <CountryDropdown
               required
-              // onChange={val => handleShipping({
-              //   target: {
-              //     name: 'country',
-              //     value: val
-              //   }
-              // })}
-              // value={shippingAddress.country}
+              onChange={val => handleShipping({
+                target: {
+                  name: 'country',
+                  value: val
+                }
+              })}
+              value={shippingAddress.country}
               valueType="short"
             />
           </div>
@@ -116,8 +146,8 @@ const Payment = () => {
             required
             placeholder="Name on Card"
             name="nameOnCard"
-            // handleChange={e => setNameOnCard.target.value)}
-            // value={nameOnCard}
+            onChange={e => setNameOnCard(e.target.value)}
+            value={nameOnCard}
             type="text"
           />
 
@@ -125,16 +155,16 @@ const Payment = () => {
             required
             placeholder="Line 1"
             name="line1"
-            // handleChange={e => handleBilling(e)}
-            // value={billingAddress.line1}
+            onChange={e => handleBilling(e)}
+            value={billingAddress.line1}
             type="text"
           />
 
           <input
             placeholder="Line 2"
             name="line2"
-            // handleChange={e => handleBilling(e)}
-            // value={billingAddress.line2}
+            onChange={e => handleBilling(e)}
+            value={billingAddress.line2}
             type="text"
           />
 
@@ -142,8 +172,8 @@ const Payment = () => {
             required
             placeholder="City"
             name="city"
-            // handleChange={e => handleBilling(e)}
-            // value={billingAddress.city}
+            onChange={e => handleBilling(e)}
+            value={billingAddress.city}
             type="text"
           />
 
@@ -151,8 +181,8 @@ const Payment = () => {
             required
             placeholder="State"
             name="state"
-            // handleChange={e => handleBilling(e)}
-            // value={billingAddress.state}
+            onChange={e => handleBilling(e)}
+            value={billingAddress.state}
             type="text"
           />
 
@@ -160,33 +190,27 @@ const Payment = () => {
             required
             placeholder="Postal Code"
             name="postal_code"
-            // handleChange={e => handleBilling(e)}
-            // value={billingAddress.postal_code}
-            // type="text"
+            onChange={e => handleBilling(e)}
+            value={billingAddress.postal_code}
+            type="text"
           />
 
           <div className="formRow checkoutInput">
             <CountryDropdown
               required
-              // onChange={val => handleBilling({
-              //   target: {
-              //     name: 'country',
-              //     value: val
-              //   }
-              // })}
-              // value={billingAddress.country}
+              onChange={val => handleBilling({
+                target: {
+                  name: 'country',
+                  value: val
+                }
+              })}
+              value={billingAddress.country}
               valueType="short"
             />
           </div>
-
         </div>
-
-
-
         </form>
         </div> 
-
-
 
 
       <div className='payment__items'>
@@ -229,8 +253,15 @@ h1 {
 
 .payment-container {
   display: flex;
-  flex-direction: row;
-  margin: 0 50px 50px 50px;
+  flex-direction: column;
+  margin: 0 auto;
+
+  @media screen and (min-width: 814px) {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+  }
 }
 
 .payment__section {
@@ -238,10 +269,11 @@ h1 {
   justify-content: center;
 }
 
+
 .payment__items {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 20px;
 }
 
 .text-container1  {
@@ -256,12 +288,14 @@ h1 {
   border-bottom: 1px solid #555;
   width: 100%;
 }
+
 .cart-total {
  display: grid;
  grid-template-columns: 1fr 1fr;
   font-size: 15px;
   text-align: left;
 }
+
 span {
   color: gray;
   font-size: 14px;
@@ -284,6 +318,12 @@ form {
   background-color: black;
   color: white;
   border: none;
+  margin: 0 auto;
+
+  @media screen and (min-width: 814px) {
+    margin: 20px;
+    width: 500px
+  }
 }
 
 input,
@@ -294,6 +334,18 @@ select {
   margin: 5px;
   padding: 2px;
 }
+
+.group  {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+select {
+  max-width: 150px;
+}
+
 `
 
 export default Payment
