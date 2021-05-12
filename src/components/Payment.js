@@ -55,14 +55,13 @@ const Payment = () => {
 
   const handleSubmit = async e => {
        e.preventDefault()
-       const cardElement = elements.getElement('card')
-
+  const cardElement = elements.getElement('card')
        if (
             !shippingAddress.line1 || !shippingAddress.city ||
             !shippingAddress.state || !shippingAddress.postal_code ||
             !billingAddress.country || !billingAddress.line1 ||
             !billingAddress.city || !billingAddress.state ||
-            !billingAddress.postal_Cdoe || !billingAddress.country ||
+            !billingAddress.postal_code || !billingAddress.country ||
             !recipientName || !nameOnCard
         ) {
             return;
@@ -70,7 +69,7 @@ const Payment = () => {
 
         apiInstance.post('/payments/create', {
           amount: newTotal * 100,
-          shippingAddress: {
+          shipping: {
             name: recipientName,
             address: {
               ...shippingAddress
@@ -78,6 +77,7 @@ const Payment = () => {
           }
 
         }).then(({ data: clientSecret}) => {
+
           stripe.createPaymentMethod({
             type: 'card',
             card: cardElement,
@@ -91,6 +91,7 @@ const Payment = () => {
             stripe.confirmCardPayment(clientSecret, {
               payment_method: paymentMethod.id
             })
+
             .then(({ paymentIntent }) => {
               console.log(paymentIntent)
             })
