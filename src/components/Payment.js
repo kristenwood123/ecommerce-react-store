@@ -1,40 +1,107 @@
-
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
 import { CountryDropdown } from 'react-country-region-selector';
-import StripeContainer from './StripeContainer'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { createStructuredSelector } from 'reselect'
+import { useSelector } from 'react-redux'
+import { apiInstance } from '../axios'
 
 
-const initialAddressState = {
+const CARD_OPTIONS = {
+  iconStyle: 'solid',
+  style: {
+    base: {
+      iconColor: 'white',
+      color: '#fff',
+      fontWeight: 500,
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
+
+    },
+    invalid: {
+      iconColor: 'red',
+      color: 'red'
+    }
+  }
+}
+
+  const initialAddressState = {
   line1: '',
   line2: '',
   city: '',
   state: '',
   postal_code: '',
-  country: '',
+  country: ''
 }
 
-const Payment = () => {
-  const { cart, total, amount } = useGlobalContext()
 
+const Payment = () => {
+  const stripe = useStripe()
+  const elements = useElements()
+  
+  const { cart, total, amount } = useGlobalContext()
   const [billingAddress, setBillingAddress] = useState({...initialAddressState})
   const [shippingAddress, setShippingAddress] = useState({...initialAddressState})
   const [recipientName, setRecipientName] = useState("")
   const [nameOnCard, setNameOnCard] = useState("")
+  
   const taxes = total * .08;
-  let newTotal = taxes + total; 
+  let newTotal = taxes + total;
 
-  // const handleFormSubmit = e => {
-  //   e.preventDefault();
-  //   console.log('helllo');
-  // }
+   
+
+  const handleSubmit = async e => {
+       e.preventDefault()
+       const cardElement = elements.getElement('card')
+
+       if (
+            !shippingAddress.line1 || !shippingAddress.city ||
+            !shippingAddress.state || !shippingAddress.postal_code ||
+            !billingAddress.country || !billingAddress.line1 ||
+            !billingAddress.city || !billingAddress.state ||
+            !billingAddress.postal_Cdoe || !billingAddress.country ||
+            !recipientName || !nameOnCard
+        ) {
+            return;
+        }
+
+        apiInstance.post('/payments/create', {
+          amount: newTotal * 100,
+          shippingAddress: {
+            name: recipientName,
+            address: {
+              ...shippingAddress
+            }
+          }
+
+        }).then(({ data: clientSecret}) => {
+          stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+            billing_details: {
+              name: nameOnCard,
+              address: {
+                ...billingAddress
+              }
+            }
+          }).then(({ paymentMethod }) => {
+            stripe.confirmCardPayment(clientSecret, {
+              payment_method: paymentMethod.id
+            })
+            .then(({ paymentIntent }) => {
+              console.log(paymentIntent)
+            })
+          })
+        })
+    }
 
    const handleShipping = e => {
     const { name, value } = e.target;
     setShippingAddress({
-      ...initialAddressState,
+      ...shippingAddress,
       [name]: value
     })
   }
@@ -42,37 +109,24 @@ const Payment = () => {
   const handleBilling = e => {
     const { name, value } = e.target;
     setBillingAddress({
-      ...initialAddressState,
+      ...billingAddress,
       [name]: value
     })
   }
 
 
-  return (
+return (
     <PaymentSection>
-      <p>Checkout ({amount} items)</p>
-      <hr/>
-      <div className="payment-container">
-{/* 
-      <div className="payment__information">
-        <section className="payment__section">
-          <div>
-            <p>Shipping address:</p>
-          </div>
-            <div className="text-container1">
-              <p>{user?.email}</p>
-              <p>1435 20th Street</p>
-              <p>San Diego, CA 90820</p>
-            </div>
-          </section>
-        </div> */}
+     <p>Checkout ({amount} items)</p>
+  <hr/>
+  <div className="payment-container">
 
     <div className="payment__details">
-      <form >
+      <form onSubmit={handleSubmit}>
+        <div className="group-wrapper1">
           <div className="group">
             <h6>Shipping Address</h6>
-              </div>
-              <input
+          <input
             required
             placeholder="Recipient Name"
             name="recipientName"
@@ -85,16 +139,16 @@ const Payment = () => {
             required
             placeholder="Line 1"
             name="line1"
-            onChange={e => handleShipping(e)}
             value={shippingAddress.line1}
+            onChange={e => handleShipping(e)}
             type="text"
           />
 
           <input
             placeholder="Line 2"
             name="line2"
-            onChange={e => handleShipping(e)}
             value={shippingAddress.line2}
+            onChange={e => handleShipping(e)}
             type="text"
           />
 
@@ -102,8 +156,8 @@ const Payment = () => {
             required
             placeholder="City"
             name="city"
-            onChange={e => handleShipping(e)}
             value={shippingAddress.city}
+            onChange={e => handleShipping(e)}
             type="text"
           />
 
@@ -111,8 +165,8 @@ const Payment = () => {
             required
             placeholder="State"
             name="state"
-            onChange={e => handleShipping(e)}
             value={shippingAddress.state}
+            onChange={e => handleShipping(e)}
             type="text"
           />
 
@@ -120,8 +174,8 @@ const Payment = () => {
             required
             placeholder="Postal Code"
             name="postal_code"
-            onChange={e => handleShipping(e)}
             value={shippingAddress.postal_code}
+            onChange={e => handleShipping(e)}
             type="text"
           />
         <div className='formRow'>
@@ -137,9 +191,10 @@ const Payment = () => {
               valueType="short"
             />
           </div>
+        </div>
           
         <div className="group">
-          <h6 style={{marginTop: '10px'}}>
+          <h6 className='h6'>
             Billing Address
           </h6>
          <input
@@ -209,11 +264,9 @@ const Payment = () => {
             />
           </div>
         </div>
-        </form>
-        </div> 
-
-
-      <div className='payment__items'>
+      </div>
+      <div className="group-wrapper2">
+         <div className='payment__items'>
           <section className="payment__section1">
               <h6>Review Items</h6>
               {cart.map((item) => {
@@ -235,8 +288,17 @@ const Payment = () => {
             </div>
           </section>
         </div>  
+   <div className="cardElement">
+      <CardElement 
+        options={CARD_OPTIONS}/>
+        <button 
+          type='submit' 
+          className='payment'>Pay</button>
+        </div>
+        </div>
+        </form>
       </div>
-      <StripeContainer />
+     </div> 
     </PaymentSection>
   )
 }
@@ -251,9 +313,14 @@ h1 {
   margin-bottom: 20px;
 }
 
+.h6 {
+  margin-top: 10px;
+}
+
 .payment-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
 
   @media screen and (min-width: 814px) {
@@ -262,6 +329,28 @@ h1 {
     margin: 0 auto;
     justify-content: center;
   }
+
+  .group-wrapper1,
+  .group-wrapper2 {
+    display: flex;
+    flex-direction: row;
+  }
+
+   .group-wrapper2 {
+     margin-top: 30px;
+   }
+
+  .group {
+    width: 100%;
+  } 
+
+  .h6 {
+    margin-top: 0;
+  }
+}
+
+form .group {
+  margin: 0 auto;
 }
 
 .payment__section {
@@ -311,10 +400,8 @@ h6 {
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
+.cardElement {
+  max-width: 400px;
   background-color: black;
   color: white;
   border: none;

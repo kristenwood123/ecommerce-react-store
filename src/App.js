@@ -12,6 +12,7 @@ import Payment from './components/Payment'
 import Checkout from './components/Checkout'
 import { useGlobalContext } from './context';
 import { auth } from './firebase'
+import StripeContainer from './components/StripeContainer';
 
 
 const App = () => {
@@ -51,7 +52,7 @@ useEffect(() => {
           <Route path='/timepieces' component={TimepieceList}/>
           <Route path='/cart' component={Cart} />
           <Route path='/checkout' component={Checkout}/>
-          <Route path='/payment' component={Payment}/>
+          <Route path='/payment' component={StripeContainer}/>
         </Switch>       
       <Footer />
     </div>
