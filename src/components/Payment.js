@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
 import { CountryDropdown } from 'react-country-region-selector';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { createStructuredSelector } from 'reselect'
-import { useSelector } from 'react-redux'
 import { apiInstance } from '../axios'
+import { Redirect, useHistory } from 'react-router-dom'
+
 
 
 const CARD_OPTIONS = {
@@ -41,16 +41,21 @@ const CARD_OPTIONS = {
 const Payment = () => {
   const stripe = useStripe()
   const elements = useElements()
+  const history = useHistory()
   
-  const { cart, total, amount } = useGlobalContext()
+  const { cart, total, amount, resetCart } = useGlobalContext()
   const [billingAddress, setBillingAddress] = useState({...initialAddressState})
   const [shippingAddress, setShippingAddress] = useState({...initialAddressState})
   const [recipientName, setRecipientName] = useState("")
   const [nameOnCard, setNameOnCard] = useState("")
   
+  
   const taxes = total * .08;
   let newTotal = taxes + total;
 
+  const redirect = () => {
+    history.push('/')
+  }
 
   const handleSubmit = async e => {
        e.preventDefault()
@@ -92,8 +97,13 @@ const Payment = () => {
               payment_method: paymentMethod.id
             })
 
-            .then(({ paymentIntent }) => {
-              console.log(paymentIntent)
+            .then(() => {
+              resetCart()
+              setRecipientName('')
+              setNameOnCard('')
+              setBillingAddress({...initialAddressState})
+              setShippingAddress({...initialAddressState})
+              redirect()
             })
           })
         })

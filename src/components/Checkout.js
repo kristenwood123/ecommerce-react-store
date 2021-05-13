@@ -20,7 +20,6 @@ export const Checkout = () => {
         history.push('/')
       })
       .catch(error => alert(error.message))
-
   }
 
   const createAccount = e => {

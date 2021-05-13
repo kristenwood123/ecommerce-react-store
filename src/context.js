@@ -52,6 +52,10 @@ const decrease = (id) => {
   dispatch({type: 'DECREASE', payload: id})
 }
 
+const resetCart = () => {
+  dispatch({type: 'RESET_CART' })
+}
+
 useEffect(() => {
   dispatch({type: 'GET_TOTAL'})
 }, [state.cart])
@@ -67,7 +71,8 @@ useEffect(() => {
     addItem,
     removeItem,
     showText,
-    dispatch
+    dispatch,
+    resetCart
   }}>
     {children}
   </AppContext.Provider>
