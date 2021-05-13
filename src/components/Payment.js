@@ -55,6 +55,7 @@ const Payment = () => {
 
   const redirect = () => {
     history.push('/')
+    alert('Payment complete!')
   }
 
   const handleSubmit = async e => {
