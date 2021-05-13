@@ -51,7 +51,6 @@ const Payment = () => {
   const taxes = total * .08;
   let newTotal = taxes + total;
 
-   
 
   const handleSubmit = async e => {
        e.preventDefault()
@@ -88,6 +87,7 @@ const Payment = () => {
               }
             }
           }).then(({ paymentMethod }) => {
+            
             stripe.confirmCardPayment(clientSecret, {
               payment_method: paymentMethod.id
             })

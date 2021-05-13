@@ -6,7 +6,6 @@ const stripe = require('stripe')
 
 const app = express()
 
-// - Middlewars
 app.use(cors({ 
   origin: true 
 }))
@@ -17,7 +16,7 @@ app.post('/payments/create', async (req, res) => {
     const { amount, shipping } = req.body
     const paymentIntent = await stripe.paymentIntents.create({
       shipping,
-      amount,
+      amount: parseInt(amount),
       currency: 'usd'
     })
 
@@ -32,19 +31,19 @@ app.post('/payments/create', async (req, res) => {
       statusCode: 500,
       message: err.message
     })
-
   }
-} )
+})
 
 
 // - API routes
 app.get('*', (request, response) => {
   response
     .status(404)
-    .send('helloo world')
-
+    .send('404, Not Found.')
   })
 // - Listen command
 exports.api = functions.https.onRequest(app)
 
 //http://localhost:5001/sangin-clone/us-central1/api
+
+// 4242 4242 4242 4242
