@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import '../styles/index.css'
 import PropTypes from 'prop-types'

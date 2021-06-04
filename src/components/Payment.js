@@ -7,8 +7,6 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { apiInstance } from '../axios'
 import { Redirect, useHistory } from 'react-router-dom'
 
-
-
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
