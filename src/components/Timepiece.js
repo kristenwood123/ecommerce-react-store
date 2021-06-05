@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
-  const { addItem, showText, cart } = useGlobalContext()
-  const { title, img, price, info, inCart } = product
+  const { addItem, showText, cart, handleDetail, getItem } = useGlobalContext()
+  const { id, title, img, price, info, inCart } = product
 
 useEffect(() => {
   if(inCart) {
@@ -19,7 +19,7 @@ useEffect(() => {
   },[])
     return (
       <Card>
-          <ImageContainer>
+          <ImageContainer onClick={() => getItem(id)}>
               <Link to='/details'>
                 <img src={img} alt="product" className='timepiece__card-watch'/>
               </Link>

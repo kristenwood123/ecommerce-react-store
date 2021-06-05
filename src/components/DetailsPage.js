@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
+import { useGlobalContext } from '../context'
+
 
 
 const DetailsPage = () => {
-  console.log('hello!');
+    const { addItem, showText, cart, getItem } = useGlobalContext()
+
+
   return (
     <div>
       <h1 style={{color:'white', paddingTop:'100px'}}>Hellooo!!</h1>

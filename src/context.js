@@ -56,8 +56,14 @@ const resetCart = () => {
   dispatch({type: 'RESET_CART' })
 }
 
-const handleDetail = () => {
-  console.log('Hello from detail');
+const getItem = (id) => {
+  const product = products.find(item => item.id === id)
+  return product
+}
+
+const handleDetail = (id) => {
+    const product = getItem()
+    console.log(product);
 }
 
 useEffect(() => {
@@ -76,7 +82,9 @@ useEffect(() => {
     removeItem,
     showText,
     dispatch,
-    resetCart
+    resetCart,
+    getItem,
+    handleDetail
   }}>
     {children}
   </AppContext.Provider>
