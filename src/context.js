@@ -56,6 +56,10 @@ const resetCart = () => {
   dispatch({type: 'RESET_CART' })
 }
 
+const handleDetail = () => {
+  console.log('Hello from detail');
+}
+
 useEffect(() => {
   dispatch({type: 'GET_TOTAL'})
 }, [state.cart])
