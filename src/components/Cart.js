@@ -19,7 +19,8 @@ const Cart = () => {
           <h4 className='empty-cart'>is currently empty</h4>
           <div>
             <Link to='/timepieces'>
-            <button className='btn'>CONTINUE SHOPPING</button></Link>
+            <button className='btn'>CONTINUE SHOPPING</button>
+            </Link>
           </div>
         </header>
      </CartSect>

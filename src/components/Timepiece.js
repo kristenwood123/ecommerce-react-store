@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import '../styles/index.css'
 import PropTypes from 'prop-types'
 import { useGlobalContext } from '../context'
 
 export default function Timepiece ({product}){
-  const { addItem, showText, cart, handleDetail, getItem } = useGlobalContext()
+  const { addItem, showText, cart, getItem } = useGlobalContext()
   const { id, title, img, price, info, inCart } = product
 
 useEffect(() => {

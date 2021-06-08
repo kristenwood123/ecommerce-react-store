@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGlobalContext } from '../context'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 
 const DetailsPage = () => {
-  const { details } = useGlobalContext()
+  const { details, addItem } = useGlobalContext()
   const { img, price, title, info } = details
 
   return (
@@ -16,8 +17,10 @@ const DetailsPage = () => {
         <p className='info'>{info}</p>
         <p className='price'>Price: ${price}</p>
         <div className='btn-wrapper'>
-          <button>Add to Cart</button>
+          <button onClick={() =>  addItem(details)}>Add to Cart</button>
+          <Link to='/timepieces'>
           <button>Back to Watches</button>
+          </Link>
         </div>
       </WatchDetails>
     </DetailsPageDiv>
