@@ -14,7 +14,7 @@ const DetailsPage = () => {
       <WatchDetails>
         <h1>{title}</h1>
         <p className='info'>{info}</p>
-        <p>${price}</p>
+        <p className='price'>Price: ${price}</p>
         <div className='btn-wrapper'>
           <button>Add to Cart</button>
           <button>Back to Watches</button>
@@ -39,6 +39,16 @@ height: 100%;
       width: 300px;
       height: 300px;
     }
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .info { 
+      max-width: 550px;
+      align-text: center;
+    }
   }
 `
 
@@ -50,6 +60,11 @@ padding-top: 30px;
     margin-left: 10px;
     margin-right: 10px;
     font-size: 14px;
+    max-width: 500px;
+  }
+
+  .price { 
+    text-align: center;
   }
 }
 .btn-wrapper {
