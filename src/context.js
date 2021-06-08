@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect } from 'react'
+import React, { useContext, useReducer, useEffect, useState } from 'react'
 import reducer from './reducer'
 import data from './data'
 
@@ -17,6 +17,7 @@ const initialState = {
 
 const AppProvider = ({children}) => {
 const [state, dispatch] = useReducer(reducer, initialState)
+const [details, setDetails] = useState([])
 
 const clearCart = () => {
   dispatch({type: 'CLEAR_CART'})
@@ -56,14 +57,10 @@ const resetCart = () => {
   dispatch({type: 'RESET_CART' })
 }
 
+//getting item for detail page
 const getItem = (id) => {
-  const product = products.find(item => item.id === id)
-  return product
-}
-
-const handleDetail = (id) => {
-    const product = getItem()
-    console.log(product);
+  const detailProduct = products.find(item => item.id === id)
+  setDetails(detailProduct)
 }
 
 useEffect(() => {
@@ -74,6 +71,7 @@ useEffect(() => {
   return <AppContext.Provider 
   value={{
     ...state,
+      details,
      products,
     clearCart,
     increase, 
@@ -84,7 +82,6 @@ useEffect(() => {
     dispatch,
     resetCart,
     getItem,
-    handleDetail
   }}>
     {children}
   </AppContext.Provider>

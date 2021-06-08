@@ -1,5 +1,4 @@
 const reducer = (state, action) => {
-  
    if (action.type === 'ADD') {
      const item = action.payload
      const itemExists = state.cart.find((id) => item.id === id.item)
