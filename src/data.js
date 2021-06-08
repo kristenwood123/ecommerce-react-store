@@ -13,7 +13,7 @@ const data = {
 
     {
       id: 2,
-      title: 'OVERLOAD',
+      title: 'OVERLORD',
       img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/PROFESSIONALSEABLUEFRONT_B_Radius11_Smoothing3_348x.png?v=1617215390',
       price: 469.99, 
       info: 'We started the Overlord project with a simple question. What if members of the Allied assault forces during World War II designed the field watch they wore into battle? We took that question and asked it to roughly 70 members of the Airborne community. Over the course of 90 weeks from start to finish, we came up with what you see here. The Overlord field watch (Airborne version requires proof of military jump course completion ).',
