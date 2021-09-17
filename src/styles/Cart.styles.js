@@ -11,7 +11,7 @@ export const CartSect = styled.section`
   header {
     text-align: center;
   }
-
+t
   hr {
     border: 1px solid white;
     opacity: 1;

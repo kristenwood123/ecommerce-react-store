@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { GlobalStyles } from '../src/styles/GlobalStyles';
 
 //App components
 import Navigation from './components/Navigation'
@@ -45,6 +46,7 @@ useEffect(() => {
   )}
   return (
     <BrowserRouter>
+      <GlobalStyles/>
       <div className="App" style={{backgroundColor: '#000', minHeight: '100vh', position: 'relative', padding: '0 0 100px'}}>
         <Navigation user={dispatch.user}/>
         <Switch>
