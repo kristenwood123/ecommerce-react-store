@@ -10,6 +10,7 @@ const DetailsPage = () => {
   const { img, price, title, info } = details
 
   return (
+    
     <DetailsPageDiv>
       <img src={img} alt={title} />
       <WatchDetails>
