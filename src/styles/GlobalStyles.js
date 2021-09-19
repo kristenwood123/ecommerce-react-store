@@ -57,15 +57,28 @@ export const GlobalStyles = createGlobalStyle`
 
   .checkout {
     margin-top: 2rem;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: 200;
-  width: 150px;
-  padding: 10px;
-  border: 1px solid white;
-  background-color: black;
-  color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 200;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
 }
+
+  .pay {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 200;
+    padding: 5px;
+    width: 150px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+
 
 `
 

@@ -303,7 +303,7 @@ return (
         options={CARD_OPTIONS}/>
         <button 
           type='submit' 
-          className='payment'>Pay</button>
+          className='pay'>Pay</button>
         </div>
         </div>
         </form>

@@ -36,7 +36,7 @@ const data = {
     {
       id: 4,
       title: 'KINETIC II',
-      img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/KineticIIPilotDLCFixed_348x.png?v=1619870996',
+      img: 'https://cdn.shopify.com/s/files/1/2293/1277/products/2021-06-2813-37-38_B_Radius14_Smoothing3_590x.png?v=1625080296',
       price: 559.99, 
       info: 'Welcome back the Kinetic. We took the feedback from our tribe over the last few years and took the input of over forty pilots and aircrew (thanks gents!) on what everyone needed in a watch. We went to work in a long prototype phase. Making multiple prototypes until we felt we got the Kinetic II just right. Then, off the prototypes went. SE Asia, Europe, peaks in Switzerland, with buddies in Central Asia, Northern Africa, and M&A Consultants who go to work with a go-bag, unsure of where they might be in the afternoon. We took the feedback and made a few changes, resulting in the Kinetic II Expedition and Kinetic II Pilot. Designed for those who are always on the go, tracking multiple timezones.',
       inCart: false,
