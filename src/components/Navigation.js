@@ -1,7 +1,5 @@
 import React from 'react'
-import { HiOutlineShoppingBag } from 'react-icons/hi'
-import { BsSearch } from 'react-icons/bs'
-import { AiOutlineUser } from 'react-icons/ai'
+import { SearchGlass, User, ShoppingBag } from '../styles/Navigation.styles'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { auth } from '../firebase'
 import { Link } from 'react-router-dom'
@@ -19,7 +17,7 @@ const Navigation = () =>  {
 
   return (
     <>
-     <Navbar collapseOnSelect fixed='top' expand='sm' bg='white' variant='light'>
+     <Navbar className='Navbar' collapseOnSelect fixed='top' expand='sm' bg='white' variant='light'>
       <Container>
          <Navbar.Toggle aria-controls='responsive-navbar-nav' variant='dark'/>
           <Navbar.Collapse id='responsive-navbar-nav'>
@@ -32,9 +30,9 @@ const Navigation = () =>  {
               <Link to={!user && '/checkout'} className='links'>
                 <div onClick={handleAuthentication}>
                   <span>{user ? 'SignOut' : 'Sign In' }</span></div></Link>      
-              <Link to='/' className='links'/><BsSearch/>
-              <Link to='/' className='links'/><AiOutlineUser/>
-              <Link to='/cart' className='links'> <HiOutlineShoppingBag className='Navbar__bag'/>{amount === 0 ? '' : amount}</Link>
+              <Link to='/' className='links'><SearchGlass/></Link>
+              <Link to='/' className='links'><User/></Link>
+              <Link to='/cart' className='links'> <ShoppingBag className='Navbar__bag'/>{amount === 0 ? '' : amount}</Link>
               </Nav>  
             </Navbar.Collapse>  
           </Container>           

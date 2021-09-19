@@ -27,6 +27,7 @@ const CheckoutSection = styled.section`
   img {
     width: 70px;
   }
+  
   .amount {
    background-color: white;
    opacity: .5;

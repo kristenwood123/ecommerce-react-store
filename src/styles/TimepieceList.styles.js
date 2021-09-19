@@ -20,22 +20,4 @@ export const Section = styled.section`
   justify-content: flex-end;
   padding-bottom: 100px;
 }
-
-.checkout {
-    background-color: black;
-    color: white;
-    font-size: 14px;
-    border: none;
-    width: 180px;
-    margin-top: 10px;
-    padding: 8px;
-    border: 1px solid white;
-    text-align: center;
-}
-
-.checkout:hover {
-  color: black;
-  background-color: white;
-  border: 1px solid black;
-}
 `
