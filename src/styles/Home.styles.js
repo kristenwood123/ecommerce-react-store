@@ -20,6 +20,24 @@ export const HomeSection = styled.section`
     to   { opacity: 1; }
 }
 
+.learn {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 200;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  bottom: 20rem;
+  right: 20rem;
+}
+
+.btn-holder {
+  position: relative;
+}
+
 .hero-image {
   width: 100%;
 }
@@ -64,6 +82,7 @@ export const Card = styled.article`
   font-size: 14px;
   line-height: 2rem;
 }
+
 
 #explore {
   text-transform: uppercase;

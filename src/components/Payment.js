@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router'
 import { useGlobalContext } from '../context'
 import CheckoutProduct from './CheckoutProduct'
 import { CountryDropdown } from 'react-country-region-selector';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { apiInstance } from '../axios'
-import { Redirect, useHistory } from 'react-router-dom'
+
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
