@@ -37,24 +37,14 @@ t
     width: 80%;
   }
 
-  .btn {
-  border: none;
-  background-color: white;
-  color: black;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: none;
-  font-size: 14px;
-}
-
 .checkout {
     background-color: black;
     color: white;
     font-size: 14px;
     border: none;
-    width: 100px;
+    width: 200px;
     margin-top: 10px;
-    padding: 5px;
+    padding: 20px;
     border: 1px solid white;
     text-align: center;
 }
@@ -62,6 +52,7 @@ t
 .checkout:hover {
   color: black;
   background-color: white;
+  transition: 1s ease out;
   border: 1px solid black;
 }
 

@@ -11,13 +11,13 @@ const Cart = () => {
    if (cart.length === 0) {
     return (
       <CartSect>
-        <header style={{color: 'white'}}> 
-          {user && <h4 style={{paddingTop: '2rem'}}>{user.email}</h4>}
-          <h3>Your Cart</h3>
-          <h4 className='empty-cart'>is currently empty</h4>
+        <header style={{color: 'white', paddingTop: '2rem'}}> 
+          {user && <h4>{user.email}</h4>}
+          <h3 style={{fontSize: '40px', fontWeight: '200'}}>Your Cart</h3>
+          <h4 className='empty-cart' style={{fontSize: '20px', fontWeight: '200'}}>is currently empty</h4>
           <div>
             <Link to='/timepieces'>
-            <button className='btn'>CONTINUE SHOPPING</button>
+            <button className='checkout'>CONTINUE SHOPPING</button>
             </Link>
           </div>
         </header>

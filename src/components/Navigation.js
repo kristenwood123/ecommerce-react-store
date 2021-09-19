@@ -30,7 +30,7 @@ const Navigation = () =>  {
                 <div onClick={handleAuthentication}>
                   <span>{user ? 'SignOut' : 'Sign In' }</span></div></Link>      
               <Link to='/' className='links icon'><SearchGlass/></Link>
-              <Link to='/' className='links icon'><User/></Link>
+              <Link to='/checkout' className='links icon'><User/></Link>
               <Link to='/cart' className='links icon'> <ShoppingBag className='Navbar__bag'/>{amount === 0 ? '' : amount}</Link>
               </Nav>  
             </Navbar.Collapse>  

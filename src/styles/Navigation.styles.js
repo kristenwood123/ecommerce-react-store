@@ -10,7 +10,6 @@ export const SearchGlass = styled(BsSearch)`
 export const User = styled(AiOutlineUser)`
   font-size: 20px;
 `
-
 export const ShoppingBag = styled(HiOutlineShoppingBag)`
   font-size: 22px;
 `

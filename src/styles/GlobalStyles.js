@@ -55,6 +55,18 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .checkout {
+    margin-top: 2rem;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 200;
+  width: 150px;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+
 `
 
 export default GlobalStyles
