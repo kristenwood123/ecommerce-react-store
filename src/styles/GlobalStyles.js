@@ -40,6 +40,12 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 15px;
   }
 
+  .icon {
+     @media (max-width: 780px) {
+      display: none; 
+    }
+  }
+
   a {
     text-decoration: none;
 

@@ -12,10 +12,8 @@ const Home = () => {
         <h2 className='home__text-heading'>BRILLIANCE IN THE BASICS</h2>
           <p className='home__text'>
               Purpose built timepieces. Sangin Instruments’ watches are simple, functional, and reliable. Looking good no matter what the occasion. Each timepiece is designed, prototyped, tested and inspected in California by two people who are focused on bringing you the brilliance in the basics.</p>
-          <button className="checkout explore">Explore</button>
+          <button className="checkout explore" id="explore">Explore</button>
       </Card>
-      
-
    </HomeWrapper>
   </HomeSection>
   )

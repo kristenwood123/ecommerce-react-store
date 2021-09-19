@@ -47,7 +47,7 @@ useEffect(() => {
   return (
     <BrowserRouter>
       <GlobalStyles/>
-      <div className="App" style={{backgroundColor: '#000', minHeight: '100vh', position: 'relative', padding: '0 0 100px'}}>
+      <div className="App" style={{backgroundColor: '#000', minHeight: '100vh', position: 'relative', padding: '0'}}>
         <Navigation user={dispatch.user}/>
         <Switch>
           <Route exact path='/' component={Home}/>

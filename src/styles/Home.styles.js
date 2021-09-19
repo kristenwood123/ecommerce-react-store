@@ -58,18 +58,22 @@ export const Card = styled.article`
 }
 
 .home__text {
-  margin-top: 10px;
+  margin: 1rem 2rem;
   color: #fff;
   font-weight: 200;
   font-size: 14px;
   line-height: 2rem;
 }
 
-.explore {
+#explore {
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 200;
   width: 150px;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
 }
 
 

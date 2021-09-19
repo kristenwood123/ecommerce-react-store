@@ -2,21 +2,14 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <section style={{display: 'flex'}}>
-      <div style={{margin: '10px', display: 'flex'}}>
-      <p className='footer__text'>Early release notification on limited products...</p>
-        <div className='footer__email'>
-          <input className='footer__input' type="text" placeholder='Email Address'/>
-          <div className="footer__btn-container">
-          <button className='footer__btn'>SUBSCRIBE</button>
-          </div>
-        </div>
+    <section style={{display: 'flex', color: '#C3C3C3', backgroundColor: '#0C0B0C', fontSize: '12px'}}>
+      <div style={{margin: '10px', display: 'flex', marginTop: '20px'}}>
+        <ul style={{display: 'flex', listStyleType: 'none'}}>
+          <li style={{marginRight: '15px'}}>Search</li>
+          <li style={{marginRight: '15px'}}>About</li>
+          <li style={{marginRight: '15px'}}>Contact</li>
+        </ul>
       </div>
-      <ul className='footer__list'>
-        <li>Search</li>
-        <li>Contact</li>
-        <li>About</li>
-      </ul>
     </section>
   )
 }
